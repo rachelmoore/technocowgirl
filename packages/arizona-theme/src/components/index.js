@@ -2,6 +2,7 @@ import React from "react"
 import { connect, Global, css, styled, Head } from "frontity"
 import Link from "@frontity/components/link"
 import Switch from "@frontity/components/switch"
+import { FaInstagram } from 'react-icons/fa';
 import Loading from "./loading"
 import Error from "./error"
 import List from "./list"
@@ -13,6 +14,18 @@ import tcsiteside from '../assets/tcsiteside.jpg'
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link)
+//   let markup = [
+//     '@font-face {\n',
+//     '\tfont-family: \'', "Produkt", '\';\n',
+//     '\tfont-style: \'normal\';\n',
+//     '\tfont-weight: \'normal\';\n',
+//     '\tsrc: url(\'', "../assets/fonts/ProduktRegular.ttf", '\');\n',
+//     '}\n'
+// ].join('');
+
+// let style =  document.createElement('style');
+// style.setAttribute('type', 'text/css');
+// style.innerHTML = markup;
 
   return (
     <>
@@ -37,13 +50,23 @@ const Root = ({ state, actions }) => {
       `}
       />
       <Header isPostType={data.isPostType} isPage={data.isPage}>
+      <Menu>
+        <MenuLeft>
+          <Link link="/">Home</Link>
+          <br />
+          <Link link="/about-us">About Us</Link>
+          <br />
+          <Link link="/category/horses">Horses</Link>
+          <br />
+          <Link link="/category/coding">Coding</Link>
+          <br />
+        </MenuLeft>
+        <MenuRight>
+          <a href="instagram.com/techno_cowgirl"><FaInstagram /></a>
+        </MenuRight>
+      </Menu>
         <HeaderContent>
-          <h1>Techno Cowgirl</h1>
-          <Menu>
-            <Link link="/">Home</Link>
-            <br />
-            <Link link="/about-us">About Us</Link>
-          </Menu>
+          <span>Techno Cowgirl</span>
         </HeaderContent>
       </Header>
       <Main>
@@ -64,14 +87,13 @@ export default connect(Root)
 
 const Container = styled.div`
 background-color: #282c34;
+font-family: 'Roboto';
+color: #FFFFFF;
+min-height: 100vh;
 `
 
 const Header = styled.header`
 background-color: #e5edee;
-border-width: 0 0 8px 0;
-border-style: solid;
-/* border-color: ${ props => props.isPostType ? ( props.isPage ? 'lightsteelblue' : 'lightseagreen' ) : 'maroon'}; */
-border-color: ${ props => props.isPostType ? ( props.isPage ? '#3654A8' : '#F5C651' ) : '#AD9044'};
 background: linear-gradient(to top, #0000, #000000), url(${tcsitewalkingrachel});
 background-position: 'center'; 
 background-size: cover; 
@@ -89,6 +111,24 @@ const HeaderContent = styled.div`
   h1 {
     font-family: 'Rye', cursive;
   }
+  span{
+   font-family: 'Rye', cursive;
+   letter-spacing: 5px;
+   font-size: 50px;
+   font-weight: bold;
+   background-image: linear-gradient(
+	to right,
+	#462523 0,
+       	#cb9b51 22%, 
+	#f6e27a 45%,
+	#f6f2c0 50%,
+	#f6e27a 55%,
+	#cb9b51 78%,
+	#462523 100%
+	);
+   color:transparent;
+   -webkit-background-clip:text;
+}
 `
 
 const Main = styled.main`
@@ -116,18 +156,42 @@ const Main = styled.main`
 const Menu = styled.nav`
   display: flex;
   flex-direction: row;
-  margin-top: 1em;
+  background-color: #AD9044;
+  justify-content: space-between;
+  padding: 20px;
+`
+
+const MenuLeft = styled.div`
+  display: flex;
+  flex-direction: row;
   & > a {
     margin-right: 1em;
-    color: steelblue;
+    color: #FFFFFF;
     text-decoration: none;
+    font-family: 'Inconsolata', monospace;
+  }
+`
+
+const MenuRight = styled.div`
+  display: flex;
+  flex-direction: row;
+  /* width: 800px;
+  padding: 1em;
+  margin: auto; */
+  /* padding: 1em;
+  margin: auto; */
+  & > a {
+    margin-right: 1em;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Inconsolata', monospace;
   }
 `
 
 const Button = styled.button`
-  background: transparent;
+  background: #3654A8;
   border: none;
-  color: #aaa;
+  color: #FFFFFF;
 
   :hover {
     cursor: pointer;

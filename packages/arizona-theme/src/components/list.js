@@ -12,7 +12,7 @@ const List = ({ state, actions, libraries }) => {
         const post = state.source[item.type][item.id]
         {console.log(post)}
         return (
-            <>
+            <ItemContainer>
               <Link key={item.id} link={post.link}>
                 {post.title.rendered}
                 <br />
@@ -24,7 +24,7 @@ const List = ({ state, actions, libraries }) => {
               <Link key={item.id} link={post.link}>
                 Read More
               </Link>
-          </>
+          </ItemContainer>
         )
       })}
       <PrevNextNav>
@@ -58,7 +58,18 @@ const Items = styled.div`
     display: block;
     margin: 6px 0;
     font-size: 1.2em;
-    color: steelblue;
+    color: #AD9044;
+    text-decoration: none;
+  }
+`
+
+const ItemContainer = styled.div`
+  margin-bottom: 60px;
+  & > a {
+    display: block;
+    margin: 6px 0;
+    font-size: 1.2em;
+    color: #AD9044;
     text-decoration: none;
   }
 `
@@ -67,13 +78,15 @@ const PrevNextNav = styled.div`
   padding-top: 1.5em;
 
   & > button {
-    background: #eee;
+    background: #3654A8;
+    border: none;
+    color: #FFFFFF;
     text-decoration: none;
-    padding: 0.5em 1em;
-    color: #888;
-    border: 1px solid #aaa;
-    font-size: 0.8em;
+    font-size: 20px;
     margin-right: 2em;
+    padding: 10px;
+    box-shadow: 0.5rem 0.5rem black, -0.5rem -0.5rem #AD9044;
+    transition: all 0.3s ease 0s;
   }
   & > button:hover {
     cursor: pointer;
