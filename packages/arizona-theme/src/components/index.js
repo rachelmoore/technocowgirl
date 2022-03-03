@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import { connect, Global, css, styled, Head } from "frontity"
 import Link from "@frontity/components/link"
 import Switch from "@frontity/components/switch"
@@ -14,18 +14,22 @@ import tcsiteside from '../assets/tcsiteside.jpg'
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link)
-//   let markup = [
-//     '@font-face {\n',
-//     '\tfont-family: \'', "Produkt", '\';\n',
-//     '\tfont-style: \'normal\';\n',
-//     '\tfont-weight: \'normal\';\n',
-//     '\tsrc: url(\'', "../assets/fonts/ProduktRegular.ttf", '\');\n',
-//     '}\n'
-// ].join('');
+  const [mobileOS, setMobileOS] = useState(false)
+  const getMobileOS = () => {
+    const ua = navigator.userAgent
+    if (/android/i.test(ua)) {
+        return "Android";
+    }
+    else if ((/iPad|iPhone|iPod/.test(ua)) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+        return "iOS";
+    }
+    return "Other";
+}
 
-// let style =  document.createElement('style');
-// style.setAttribute('type', 'text/css');
-// style.innerHTML = markup;
+useEffect(() => {
+  const os = getMobileOS();
+  setMobileOS(os);
+}, []);  
 
   return (
     <>
@@ -45,7 +49,7 @@ const Root = ({ state, actions }) => {
           box-sizing: border-box;
         }
         html {
-          font-family: system-ui, Verdana, Arial, sans-serif;
+          font-family: "system-ui, Verdana, Arial, sans-serif";
         }
       `}
       />
@@ -66,7 +70,16 @@ const Root = ({ state, actions }) => {
         </MenuRight>
       </Menu>
         <HeaderContent>
+          {(mobileOS === "Other") &&
           <span>Techno Cowgirl</span>
+          }
+          {(mobileOS === "Android" || mobileOS === "iOS") &&
+          <>
+          <span>Techno</span>
+          <div></div>
+          <span>Cowgirl</span>
+          </>
+          }
         </HeaderContent>
       </Header>
       <Main>
