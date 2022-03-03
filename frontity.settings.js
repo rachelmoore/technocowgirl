@@ -2,7 +2,7 @@ const settings = {
   "name": "technocowgirl",
   "state": {
     "frontity": {
-      "url": "https://test.frontity.org",
+      "url": "https://technocowgirl.com",
       "title": "Techno Cowgirl",
       "description": "No, my vet can't hook you up with ketamine"
     }
