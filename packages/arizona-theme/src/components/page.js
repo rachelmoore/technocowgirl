@@ -12,7 +12,7 @@ const Page = ({ state, libraries }) => {
         <title>{page.title.rendered}</title>
         <meta name="description" content={page.excerpt.rendered} />
       </Head>
-      <h2>{page.title.rendered}</h2>
+      <h2><Html2React html={page.title.rendered} /></h2>
       <Html2React html={page.content.rendered} />
     </div>
   )

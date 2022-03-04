@@ -13,8 +13,10 @@ import tcsitewalkingrachel from '../assets/tcsitewalkingrachel.jpg'
 import tcsiteside from '../assets/tcsiteside.jpg'
 
 const Root = ({ state, actions }) => {
-  const data = state.source.get(state.router.link)
+  const data = state.source.get(state.router.link);
+  console.log('isFetching', data.isFetching)
   const [mobileOS, setMobileOS] = useState(false)
+  // const [loading, setLoading] = useState(data.isFetching);
   const getMobileOS = () => {
     const ua = navigator.userAgent
     if (/android/i.test(ua)) {
@@ -30,6 +32,12 @@ useEffect(() => {
   const os = getMobileOS();
   setMobileOS(os);
 }, []);  
+
+// useEffect(() => {
+//   if (data.isFetching === false) {
+//     setLoading(false);
+//   }
+// }, [data]);  
 
   return (
     <>
