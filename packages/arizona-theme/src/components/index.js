@@ -59,17 +59,6 @@ useEffect(() => {
         html {
           font-family: "system-ui, Verdana, Arial, sans-serif";
         }
-        a {
-          color: #AD9044;
-          text-decoration: underline;
-          letter-spacing: 2px;
-        }
-        a:hover {
-          color: #FFFFFF;
-        }
-        p {
-          margin-top: 10px;
-        }
       `}
       />
       <Header isPostType={data.isPostType} isPage={data.isPage}>
@@ -175,6 +164,7 @@ const Main = styled.main`
     margin: 0.5em 0;
   }
   p {
+    margin-top: 10px;
     line-height: 1.55em;
     margin-bottom: 0.75em;
   }
@@ -182,6 +172,15 @@ const Main = styled.main`
     color: #828282;
     font-size: 0.8em;
     margin-bottom: 1em;
+  }
+  a {
+    color: #AD9044;
+    font-family: 'Inconsolata', monospace;
+    text-decoration: underline;
+    letter-spacing: 2px;
+  }
+  a:hover {
+    color: #FFFFFF;
   }
 `
 
