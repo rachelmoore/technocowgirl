@@ -16,7 +16,7 @@ const Post = ({ state, libraries }) => {
         <title>{post.title.rendered}</title>
         <meta name="description" content={post.excerpt.rendered} />
       </Head>
-      <h2>{post.title.rendered}</h2>
+      <h2><Html2React html={post.title.rendered} /></h2>
       <PostInfo>
         <p>
           <strong>Posted: </strong>

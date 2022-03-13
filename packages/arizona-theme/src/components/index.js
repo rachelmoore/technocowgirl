@@ -59,6 +59,14 @@ useEffect(() => {
         html {
           font-family: "system-ui, Verdana, Arial, sans-serif";
         }
+        a {
+          color: #AD9044;
+          text-decoration: underline;
+          letter-spacing: 2px;
+        }
+        a:hover {
+          color: #FFFFFF;
+        }
       `}
       />
       <Header isPostType={data.isPostType} isPage={data.isPage}>
@@ -92,7 +100,7 @@ useEffect(() => {
       </Header>
       <Main>
         <Switch>
-          <Loading when={data.isFetching} />
+          {/* <Loading when={data.isFetching} /> */}
           <List when={data.isArchive} />
           <Post when={data.isPost} />
           <Page when={data.isPage} />
