@@ -41,9 +41,9 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "http://wp.technocowgirl.com",
+          "url": "https://wp.technocowgirl.com",
           "params": {
-            "per_page": 2,
+            "per_page": 5,
           },
         }
       }
