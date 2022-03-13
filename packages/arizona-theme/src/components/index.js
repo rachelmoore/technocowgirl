@@ -67,6 +67,9 @@ useEffect(() => {
         a:hover {
           color: #FFFFFF;
         }
+        p {
+          margin-top: 10px;
+        }
       `}
       />
       <Header isPostType={data.isPostType} isPage={data.isPage}>
@@ -172,7 +175,7 @@ const Main = styled.main`
     margin: 0.5em 0;
   }
   p {
-    line-height: 1.25em;
+    line-height: 1.55em;
     margin-bottom: 0.75em;
   }
   figcaption {
