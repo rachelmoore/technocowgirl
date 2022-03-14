@@ -5,7 +5,15 @@ const settings = {
       "url": "https://technocowgirl.com",
       "title": "Techno Cowgirl",
       "description": "No, my vet can't hook you up with ketamine"
-    }
+    }, 
+    "analytics": {
+      "pageviews": {
+        "googleAnalytics": true,
+      },
+      "events": {
+        "googleAnalytics": true,
+      }
+    },
   },
   "packages": [
     {
@@ -47,6 +55,14 @@ const settings = {
           },
         }
       }
+    },
+    {
+      "name": "@frontity/google-analytics",
+      "state": {
+        "googleAnalytics": {
+          "trackingId": "G-8XE6TEDPJ4",
+        },
+      },
     },
     "@frontity/tiny-router",
     "@frontity/html2react",
