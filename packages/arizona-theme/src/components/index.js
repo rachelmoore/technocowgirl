@@ -194,6 +194,9 @@ const Sidebar = styled.div`
     margin-bottom: 10px;
     margin-top: 10px;
   }
+  @media (max-width: 600px) {
+    display: none;
+  }
 `
 
 const Bookshelf = styled.div`
