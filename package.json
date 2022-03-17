@@ -27,6 +27,7 @@
     "arizona-theme": "file:packages/arizona-theme",
     "dayjs": "^1.10.7",
     "frontity": "^1.16.1",
+    "react-goodreads-shelf": "^2.3.0",
     "react-icons": "^4.3.1",
     "webfontloader": "^1.6.28"
   }

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import { connect, Global, css, styled, Head } from "frontity"
 import Link from "@frontity/components/link"
 import Switch from "@frontity/components/switch"
+import GoodreadsBookshelf from "react-goodreads-shelf";
 import { FaInstagram } from 'react-icons/fa';
 import Loading from "./loading"
 import Error from "./error"
@@ -11,11 +12,13 @@ import Page from "./page"
 import tcsitesunset from '../assets/tcsitesunset.jpg'
 import tcsitewalkingrachel from '../assets/tcsitewalkingrachel.jpg'
 import tcsiteside from '../assets/tcsiteside.jpg'
+import puppeteer from '../assets/puppeteer.gif'
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
   console.log('isFetching', data.isFetching)
   const [mobileOS, setMobileOS] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   // const [loading, setLoading] = useState(data.isFetching);
   const getMobileOS = () => {
     const ua = navigator.userAgent
@@ -90,15 +93,34 @@ useEffect(() => {
           }
         </HeaderContent>
       </Header>
-      <Main>
-        <Switch>
-          {/* <Loading when={data.isFetching} /> */}
-          <List when={data.isArchive} />
-          <Post when={data.isPost} />
-          <Page when={data.isPage} />
-          <Error when={data.isError} />
-        </Switch>
-      </Main>
+      <MainContainer>
+        <Main>
+          <Switch>
+            {/* <Loading when={data.isFetching} /> */}
+            <List when={data.isArchive} />
+            <Post when={data.isPost} />
+            <Page when={data.isPage} />
+            <Error when={data.isError} />
+          </Switch>
+        </Main>
+        {!!sidebarOpen &&
+        <Sidebar>
+          <h2>Rachel & Jupiter</h2>
+          <img src={puppeteer} height="290px" width="290px" />
+          <SidebarBio>
+            <p>Software engineer & lifelong horse nut celebrating the small gains I make with my 7 year old horse Jupiter and with the development of my app!</p>
+            <p>Read more about me and Jupiter <Link link="/about-us">here</Link>.</p>
+          </SidebarBio>
+          <Bookshelf>
+            <h2>Horse Books I Liked</h2>
+            <GoodreadsBookshelf userId="37985894" shelf="horse-books" />
+          </Bookshelf>
+          <SidebarToggle>
+            <button onClick={() => setSidebarOpen(false)}>Close Sidebar</button>
+          </SidebarToggle>
+        </Sidebar>
+        }
+      </MainContainer>
       </Container>
     </>
   )
@@ -152,10 +174,44 @@ const HeaderContent = styled.div`
 }
 `
 
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+const Sidebar = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  border-left: 2px solid #AD9044;
+  width: 350px;
+  & > h2 {
+    color: #AD9044;
+    font-family: 'Inconsolata',monospace;
+  }
+  & > img {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+`
+
+const Bookshelf = styled.div`
+  margin-top: 30px;
+  & > h2 {
+    color: #AD9044;
+    font-family: 'Inconsolata',monospace;
+    margin-bottom: 10px;
+  }
+`
+
 const Main = styled.main`
   max-width: 800px;
+  /* width: 80%; */
   padding: 1em;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
 
   img {
     max-width: 100%;
@@ -227,5 +283,33 @@ const Button = styled.button`
   :hover {
     cursor: pointer;
     color: #888;
+  }
+`
+
+const SidebarBio = styled.div`
+  width: 90%;
+  text-align: center;
+  & > p {
+    margin-top: 10px;
+  }
+  a {
+    color: #AD9044;
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #FFFFFF;
+  }
+`
+
+const SidebarToggle = styled.div`
+  margin-top: 20px;
+  & > button {
+    background-color: #AD9044;
+    color: #FFFFFF;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: 500;
+    border: none;
   }
 `
