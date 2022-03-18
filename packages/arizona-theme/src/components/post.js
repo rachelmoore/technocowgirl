@@ -33,9 +33,8 @@ const Post = ({ actions, state, libraries }) => {
         </p>
       </PostInfo>
 
-      <PostContent>
         <Html2React html={post.content.rendered} />
-      </PostContent>
+        
         {!showComments && 
         <CommentToggle>
           <button onClick={() => setShowComments(true)}>View Comments</button>
@@ -87,12 +86,6 @@ const PostInfo = styled.div`
 
   & > p {
     margin: 0;
-  }
-`
-
-const PostContent = styled.div`
-  li {
-    line-height: 1.55em;
   }
 `
 

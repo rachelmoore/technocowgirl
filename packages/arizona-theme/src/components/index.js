@@ -62,6 +62,9 @@ useEffect(() => {
         html {
           font-family: "system-ui, Verdana, Arial, sans-serif";
         }
+        li {
+          line-height: 1.55em;
+        }
       `}
       />
       <Header isPostType={data.isPostType} isPage={data.isPage}>
