@@ -63,7 +63,7 @@ useEffect(() => {
           font-family: "system-ui, Verdana, Arial, sans-serif";
         }
         li {
-          line-height: 1.55em;
+          line-height: 1.85em;
         }
         iframe {
           width: 100% !important;
@@ -72,6 +72,15 @@ useEffect(() => {
           @media (max-width: 600px) {
             width: 90vw;
           }
+        }
+        figure {
+          margin-top: 40px;
+          margin-bottom: 40px;
+        }
+        li {
+          margin-bottom: 10px;
+          line-height: 1.55em;
+          font-size: 17px;
         }
       `}
       />
@@ -232,11 +241,13 @@ const Main = styled.main`
   }
   h2 {
     margin: 0.5em 0;
+    font-size: 32px;
   }
   p {
     margin-top: 10px;
     line-height: 1.55em;
     margin-bottom: 0.75em;
+    font-size: 17px;
   }
   figcaption {
     color: #828282;
