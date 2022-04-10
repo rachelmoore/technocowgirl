@@ -65,6 +65,14 @@ useEffect(() => {
         li {
           line-height: 1.55em;
         }
+        iframe {
+          width: 100% !important;
+        }
+        .imgur-video {
+          @media (max-width: 600px) {
+            width: 90vw;
+          }
+        }
       `}
       />
       <Header isPostType={data.isPostType} isPage={data.isPage}>

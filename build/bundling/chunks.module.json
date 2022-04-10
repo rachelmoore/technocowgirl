@@ -1,0 +1,95 @@
+{
+  "errors": [],
+  "warnings": [],
+  "hash": "d2e2b701234c6069fdc9",
+  "publicPath": "/static/",
+  "outputPath": "/Users/rachelmoore/Desktop/Websites/technocowgirl/build/static",
+  "assetsByChunkName": {
+    "technocowgirl": [
+      "technocowgirl.module.js",
+      "technocowgirl.8c059de5c42e1195ab51.hot-update.js"
+    ]
+  },
+  "assets": [
+    {
+      "name": "0.module.js",
+      "size": 78241,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [],
+      "info": {},
+      "emitted": true
+    },
+    {
+      "name": "images/puppeteer.gif",
+      "size": 7609619,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "sourceFilename": "packages/arizona-theme/src/assets/puppeteer.gif"
+      },
+      "emitted": true
+    },
+    {
+      "name": "images/tcsiteside.jpg",
+      "size": 6523862,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "sourceFilename": "packages/arizona-theme/src/assets/tcsiteside.jpg"
+      },
+      "emitted": true
+    },
+    {
+      "name": "images/tcsitesunset.jpg",
+      "size": 2306209,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "sourceFilename": "packages/arizona-theme/src/assets/tcsitesunset.jpg"
+      },
+      "emitted": true
+    },
+    {
+      "name": "images/tcsitewalkingrachel.jpg",
+      "size": 5847830,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "sourceFilename": "packages/arizona-theme/src/assets/tcsitewalkingrachel.jpg"
+      },
+      "emitted": true
+    }
+  ],
+  "filteredAssets": 3,
+  "namedChunkGroups": {
+    "technocowgirl": {
+      "chunks": [
+        "technocowgirl"
+      ],
+      "assets": [
+        "technocowgirl.module.js",
+        "technocowgirl.8c059de5c42e1195ab51.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "generator": "loadable-components",
+  "chunks": [
+    {
+      "id": 0,
+      "files": [
+        "0.module.js"
+      ]
+    },
+    {
+      "id": "technocowgirl",
+      "files": [
+        "technocowgirl.module.js",
+        "technocowgirl.8c059de5c42e1195ab51.hot-update.js"
+      ]
+    }
+  ]
+}
