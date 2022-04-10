@@ -76,6 +76,9 @@ useEffect(() => {
         figure {
           margin-top: 40px;
           margin-bottom: 40px;
+          @media (max-width: 600px) {
+            max-width: 90vw;
+          }
         }
         li {
           margin-bottom: 10px;
