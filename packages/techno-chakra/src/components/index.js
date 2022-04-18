@@ -28,7 +28,7 @@ const Root = ({ state, actions }) => {
   const [mobileOS, setMobileOS] = useState(false)
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)")
   const [isLargerThan1015] = useMediaQuery("(min-width: 1015px)")
-  // const [loading, setLoading] = useState(data.isFetching);
+
   const getMobileOS = () => {
     const ua = navigator.userAgent
     if (/android/i.test(ua)) {
@@ -54,13 +54,7 @@ const theme = extendTheme({
       400: "#EE0300"
     },
   },
-})
-
-// useEffect(() => {
-//   if (data.isFetching === false) {
-//     setLoading(false);
-//   }
-// }, [data]);  
+});
 
   return (
     <ChakraProvider theme={theme}>
@@ -108,43 +102,43 @@ const theme = extendTheme({
         `}
         />
         <Header isPostType={data.isPostType} isPage={data.isPage}>
-          <Flex direction="row" align="center" justify="space-between" pt={1}>
-            {isLargerThan800 &&            
-              <TitleMenu>
-                {(mobileOS === "Other") &&
-                <SiteTitle>Techno Cowgirl</SiteTitle>
-                }
-                {(mobileOS === "Android" || mobileOS === "iOS") &&
-                <>
-                <SiteTitle>Techno</SiteTitle>
-                <div></div>
-                <SiteTitle>Cowgirl</SiteTitle>
-                </>
-                }
-              </TitleMenu>
-            }
-            <Flex direction="row" align="center" justify="flex-end" height="70px" width="100%">
-              <AboutDrawer />
-              <br />
-              <Bookshelf />
-              <br />
-              <TopNavigation />
+            <Flex direction="row" align="center" justify="space-between" pt={1}>
+              {isLargerThan800 &&            
+                <TitleMenu>
+                  {(mobileOS === "Other") &&
+                  <SiteTitle>Techno Cowgirl</SiteTitle>
+                  }
+                  {(mobileOS === "Android" || mobileOS === "iOS") &&
+                  <>
+                  <SiteTitle>Techno</SiteTitle>
+                  <div></div>
+                  <SiteTitle>Cowgirl</SiteTitle>
+                  </>
+                  }
+                </TitleMenu>
+              }
+              <Flex direction="row" align="center" justify="flex-end" height="70px" width="100%">
+                <AboutDrawer />
+                <br />
+                <Bookshelf />
+                <br />
+                <TopNavigation />
+              </Flex>
             </Flex>
-          </Flex>
-          {!isLargerThan800 &&            
-              <HeaderContent>
-                {(mobileOS === "Other") &&
-                <SiteTitle>Techno Cowgirl</SiteTitle>
+            {!isLargerThan800 &&            
+                <HeaderContent>
+                  {(mobileOS === "Other") &&
+                  <SiteTitle>Techno Cowgirl</SiteTitle>
                 }
-                {(mobileOS === "Android" || mobileOS === "iOS") &&
-                <>
-                <SiteTitle>Techno</SiteTitle>
-                <div></div>
-                <SiteTitle>Cowgirl</SiteTitle>
-                </>
-                }
-              </HeaderContent>
-            }
+                  {(mobileOS === "Android" || mobileOS === "iOS") &&
+                  <>
+                  <SiteTitle>Techno</SiteTitle>
+                  <div></div>
+                  <SiteTitle>Cowgirl</SiteTitle>
+                  </>
+                  }
+                </HeaderContent>
+              }
         </Header>
         <MainContainer>
           <Main>
@@ -250,8 +244,9 @@ const MainContainer = styled.div`
 `
 
 const Main = styled.main`
-  max-width: 800px;
+  /* max-width: 800px; */
   /* width: 80%; */
+  /* width: 100vw; */
   padding: 1em;
   margin-left: auto;
   margin-right: auto;
@@ -285,38 +280,3 @@ const Main = styled.main`
     color: #FFFFFF;
   }
 `
-
-// const Menu = styled.nav`
-//   display: flex;
-//   flex-direction: row;
-//   /* background-color: #AD9044; */
-//   justify-content: space-between;
-//   padding: 20px;
-// `
-
-// const MenuLeft = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   & > a {
-//     margin-right: 1em;
-//     color: #FFFFFF;
-//     text-decoration: none;
-//     font-family: 'Inconsolata', monospace;
-//   }
-// `
-
-// const MenuRight = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   /* width: 800px;
-//   padding: 1em;
-//   margin: auto; */
-//   /* padding: 1em;
-//   margin: auto; */
-//   & > a {
-//     margin-right: 1em;
-//     color: #FFFFFF;
-//     text-decoration: none;
-//     font-family: 'Inconsolata', monospace;
-//   }
-// `
