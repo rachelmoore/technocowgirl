@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { connect, Global, css, styled, Head } from "frontity";
 import {
   extendTheme,
+  useMediaQuery,
   Flex
 } from '@chakra-ui/react'
 import Link from "@frontity/components/link";
@@ -26,6 +27,8 @@ const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
   console.log('isFetching', data.isFetching)
   const [mobileOS, setMobileOS] = useState(false)
+  const [isLargerThan800] = useMediaQuery("(min-width: 800px)")
+  const [isLargerThan1015] = useMediaQuery("(min-width: 1015px)")
   // const [loading, setLoading] = useState(data.isFetching);
   const getMobileOS = () => {
     const ua = navigator.userAgent
@@ -107,18 +110,20 @@ const theme = extendTheme({
         />
         <Header isPostType={data.isPostType} isPage={data.isPage}>
           <Flex direction="row" align="center" justify="space-between">
-            <HeaderContent>
-              {(mobileOS === "Other") &&
-              <span>Techno Cowgirl</span>
-              }
-              {(mobileOS === "Android" || mobileOS === "iOS") &&
-              <>
-              <span>Techno</span>
-              <div></div>
-              <span>Cowgirl</span>
-              </>
-              }
-            </HeaderContent>
+            {isLargerThan1015 &&            
+              <HeaderContent>
+                {(mobileOS === "Other") &&
+                <span>Techno Cowgirl</span>
+                }
+                {(mobileOS === "Android" || mobileOS === "iOS") &&
+                <>
+                <span>Techno</span>
+                <div></div>
+                <span>Cowgirl</span>
+                </>
+                }
+              </HeaderContent>
+            }
             <Flex direction="row" align="center" justify="flex-end" height="70px" width="100%">
               <AboutDrawer />
               <br />
@@ -127,6 +132,20 @@ const theme = extendTheme({
               <TopNavigation />
             </Flex>
           </Flex>
+          {!isLargerThan800 &&            
+              <HeaderContent>
+                {(mobileOS === "Other") &&
+                <span>Techno Cowgirl</span>
+                }
+                {(mobileOS === "Android" || mobileOS === "iOS") &&
+                <>
+                <span>Techno</span>
+                <div></div>
+                <span>Cowgirl</span>
+                </>
+                }
+              </HeaderContent>
+            }
         </Header>
         <MainContainer>
           <Main>
@@ -168,7 +187,9 @@ h1 {
 const HeaderContent = styled.div`
   padding: 1.5em 1em;
   margin-left: 10px;
-  width: 1015px;
+  @media (min-width: 1015px) {
+    width: 1015px;
+  }
   h1 {
     font-family: 'Rye', cursive;
   }
