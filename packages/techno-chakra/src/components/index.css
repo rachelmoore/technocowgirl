@@ -1,0 +1,80 @@
+@keyframes colorchange {
+    0% {
+      color: red;
+    }
+    
+    10% {
+      color: orange;
+    }
+    
+    25% {
+      color: yellow;
+    }
+    
+    50% {
+      color: green;
+    }
+    
+    
+    75% {
+      color: blue;
+    }
+    
+    /* 100% {
+      color: orange;
+    } */
+}
+
+@-moz-keyframes colorchange {
+    0% {
+      color: red;
+    }
+    
+    10% {
+      color: orange;
+    }
+    
+    25% {
+      color: yellow;
+    }
+    
+    50% {
+      color: green;
+    }
+    
+    
+    75% {
+      color: blue;
+    }
+    
+    /* 100% {
+      color: orange;
+    } */
+}
+
+@-webkit-keyframes colorchange {
+    0% {
+      color: red;
+    }
+    
+    10% {
+      color: orange;
+    }
+    
+    25% {
+      color: yellow;
+    }
+    
+    50% {
+      color: green;
+    }
+    
+    
+    75% {
+      color: blue;
+    }
+    
+    /* 100% {
+      color: orange;
+    } */
+  }

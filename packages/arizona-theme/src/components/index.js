@@ -1,18 +1,19 @@
-import React, {useState, useEffect} from "react"
-import { connect, Global, css, styled, Head } from "frontity"
-import Link from "@frontity/components/link"
-import Switch from "@frontity/components/switch"
+import React, { useState, useEffect } from "react";
+import { connect, Global, css, styled, Head } from "frontity";
+import Link from "@frontity/components/link";
+import Switch from "@frontity/components/switch";
 import GoodreadsBookshelf from "react-goodreads-shelf";
+import { ChakraProvider } from '@chakra-ui/react'
 import { FaInstagram } from 'react-icons/fa';
-import Loading from "./loading"
-import Error from "./error"
-import List from "./list"
-import Post from "./post"
-import Page from "./page"
-import tcsitesunset from '../assets/tcsitesunset.jpg'
-import tcsitewalkingrachel from '../assets/tcsitewalkingrachel.jpg'
-import tcsiteside from '../assets/tcsiteside.jpg'
-import puppeteer from '../assets/puppeteer.gif'
+import Loading from "./loading";
+import Error from "./error";
+import List from "./list";
+import Post from "./post";
+import Page from "./page";
+import tcsitesunset from '../assets/tcsitesunset.jpg';
+import tcsitewalkingrachel from '../assets/tcsitewalkingrachel.jpg';
+import tcsiteside from '../assets/tcsiteside.jpg';
+import puppeteer from '../assets/puppeteer.gif';
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
@@ -43,7 +44,7 @@ useEffect(() => {
 // }, [data]);  
 
   return (
-    <>
+    <ChakraProvider>
       <Container>
       <Head>
         <title>Techno Cowgirl</title>
@@ -145,7 +146,7 @@ useEffect(() => {
         }
       </MainContainer>
       </Container>
-    </>
+    </ChakraProvider>
   )
 }
 
