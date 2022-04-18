@@ -1,4 +1,4 @@
-import { Heading } from "@chakra-ui/react";
+import { Heading, Flex, Image } from "@chakra-ui/react";
 import React from "react"
 import { connect, styled } from "frontity"
 import Link from "@frontity/components/link"
@@ -15,7 +15,7 @@ const List = ({ state, actions, libraries }) => {
 
   if (!data.isFetching) {
     return (
-      <Items>
+      <Flex direction="column" width="100%">
         {data.items.map((item) => {
           const post = state.source[item.type][item.id]
           {console.log(post)}
@@ -29,12 +29,12 @@ const List = ({ state, actions, libraries }) => {
               </Link>
               <ItemContentContainer>
                 {state.source.attachment[post.featured_media] &&
-                <img src={state.source.attachment[post.featured_media].source_url} />
+                <Image src={state.source.attachment[post.featured_media].source_url} />
                 }
                 <Html2React html={post.excerpt.rendered} />
-                <Link key={item.id} link={post.link}>
+                {/* <Link key={item.id} link={post.link}>
                   Read More
-                </Link>
+                </Link> */}
               </ItemContentContainer>
             </ItemContainer>
           )
@@ -59,7 +59,7 @@ const List = ({ state, actions, libraries }) => {
             </button>
           )}
         </PrevNextNav>
-      </Items>
+      </Flex>
     )
   }
 }
@@ -80,13 +80,13 @@ const Items = styled.div`
     background-color: #EE0300;
   } */
 
-  & > a {
+  /* & > a {
     display: block;
     margin: 6px 0;
     font-size: 1.2em;
     color: #AD9044;
     text-decoration: none;
-  }
+  } */
   }
 `
 
@@ -101,11 +101,13 @@ const ItemContainer = styled.div`
   margin-bottom: 60px;
   & > a {
     display: block;
-    margin: 6px 0;
     font-size: 1.2em;
     color: #AD9044;
     text-decoration: none;
   }
+  h2 {
+      margin-top: 0px;
+    }
 `
 
 const ItemContentContainer = styled.div`
