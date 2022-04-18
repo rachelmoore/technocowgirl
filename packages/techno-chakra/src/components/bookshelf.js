@@ -9,8 +9,10 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
+  Icon,
   useDisclosure
 } from '@chakra-ui/react';
+import { FaBook } from "react-icons/fa"
 import GoodreadsBookshelf from "react-goodreads-shelf";
 
 function Bookshelf() {
@@ -19,8 +21,8 @@ function Bookshelf() {
   
     return (
       <>
-        <Button ref={btnRef} mr={3} onClick={onOpen}>
-          Bookshelf
+        <Button ref={btnRef} ml={3} onClick={onOpen} bg='brand.200'>
+          <Icon as={FaBook} color="white" />
         </Button>
         <Drawer
           isOpen={isOpen}
@@ -29,7 +31,7 @@ function Bookshelf() {
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent>
+          <DrawerContent bg='brand.200' color="white">
             <DrawerCloseButton />
             <DrawerHeader>Horse Books I Liked</DrawerHeader>
   

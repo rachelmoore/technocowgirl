@@ -1,15 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { connect, Global, css, styled, Head } from "frontity";
 import {
-  Button,
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  useDisclosure
+  extendTheme,
+  Flex
 } from '@chakra-ui/react'
 import Link from "@frontity/components/link";
 import Switch from "@frontity/components/switch";
@@ -33,8 +26,6 @@ const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
   console.log('isFetching', data.isFetching)
   const [mobileOS, setMobileOS] = useState(false)
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-  const { isOpen, onOpen, onClose } = useDisclosure()
   // const [loading, setLoading] = useState(data.isFetching);
   const getMobileOS = () => {
     const ua = navigator.userAgent
@@ -52,6 +43,17 @@ useEffect(() => {
   setMobileOS(os);
 }, []);  
 
+const theme = extendTheme({
+  colors: {
+    brand: {
+      100: "#3AAEC2",
+      200: "#FD05E9",
+      300: "#6A3A80",
+      400: "#EE0300"
+    },
+  },
+})
+
 // useEffect(() => {
 //   if (data.isFetching === false) {
 //     setLoading(false);
@@ -59,7 +61,7 @@ useEffect(() => {
 // }, [data]);  
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Container>
         <Head>
           <title>Techno Cowgirl</title>
@@ -104,15 +106,13 @@ useEffect(() => {
         `}
         />
         <Header isPostType={data.isPostType} isPage={data.isPage}>
-        <Menu>
-          <MenuLeft>
-            <TopNavigation />
-            <br />
-            <AboutDrawer />
-            <br />
-            <Bookshelf />
-          </MenuLeft>
-        </Menu>
+        <Flex direction="row" align="center" justify="flex-end" height="70px" width="100%">
+          <AboutDrawer />
+          <br />
+          <Bookshelf />
+          <br />
+          <TopNavigation />
+        </Flex>
           <HeaderContent>
             {(mobileOS === "Other") &&
             <span>Techno Cowgirl</span>
@@ -170,12 +170,43 @@ const HeaderContent = styled.div`
   h1 {
     font-family: 'Rye', cursive;
   }
-  span{
+  span {
    font-family: 'Rye', cursive;
    letter-spacing: 5px;
    font-size: 50px;
    font-weight: bold;
-   background-image: linear-gradient(
+   -webkit-animation: colorchange 20s infinite alternate;
+    -moz-animation: colorchange 20s infinite alternate;
+    animation: colorchange 20s infinite alternate;
+
+    @keyframes colorchange {
+    0% {
+      color: #3AAEC2;
+    }
+    
+    10% {
+      color: #FD05E9;
+    }
+    
+    25% {
+      color: yellow;
+    }
+    
+    50% {
+      color: #EE0300;
+    }
+    
+    
+    75% {
+      color: yellow;
+    }
+
+    100% {
+      color: #FD05E9;
+    }
+}
+
+   /* background-image: linear-gradient(
 	to right,
 	#462523 0,
        	#cb9b51 22%, 
@@ -186,7 +217,7 @@ const HeaderContent = styled.div`
 	#462523 100%
 	);
    color:transparent;
-   -webkit-background-clip:text;
+   -webkit-background-clip:text; */
 }
 `
 
@@ -232,37 +263,37 @@ const Main = styled.main`
   }
 `
 
-const Menu = styled.nav`
-  display: flex;
-  flex-direction: row;
-  background-color: #AD9044;
-  justify-content: space-between;
-  padding: 20px;
-`
+// const Menu = styled.nav`
+//   display: flex;
+//   flex-direction: row;
+//   /* background-color: #AD9044; */
+//   justify-content: space-between;
+//   padding: 20px;
+// `
 
-const MenuLeft = styled.div`
-  display: flex;
-  flex-direction: row;
-  & > a {
-    margin-right: 1em;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-family: 'Inconsolata', monospace;
-  }
-`
+// const MenuLeft = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   & > a {
+//     margin-right: 1em;
+//     color: #FFFFFF;
+//     text-decoration: none;
+//     font-family: 'Inconsolata', monospace;
+//   }
+// `
 
-const MenuRight = styled.div`
-  display: flex;
-  flex-direction: row;
-  /* width: 800px;
-  padding: 1em;
-  margin: auto; */
-  /* padding: 1em;
-  margin: auto; */
-  & > a {
-    margin-right: 1em;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-family: 'Inconsolata', monospace;
-  }
-`
+// const MenuRight = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   /* width: 800px;
+//   padding: 1em;
+//   margin: auto; */
+//   /* padding: 1em;
+//   margin: auto; */
+//   & > a {
+//     margin-right: 1em;
+//     color: #FFFFFF;
+//     text-decoration: none;
+//     font-family: 'Inconsolata', monospace;
+//   }
+// `

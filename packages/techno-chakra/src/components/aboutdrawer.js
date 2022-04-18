@@ -12,11 +12,13 @@ import {
   Heading,
   Text,
   Image,
+  Icon,
   Link as ChakraLink,
   useDisclosure
 } from '@chakra-ui/react';
+import { FaHorse } from "react-icons/fa"
 import Link from "@frontity/components/link";
-import GoodreadsBookshelf from "react-goodreads-shelf";
+
 import puppeteer from '../assets/puppeteer.gif';
 
 function AboutDrawer() {
@@ -25,8 +27,8 @@ function AboutDrawer() {
   
     return (
       <>
-        <Button ref={btnRef} mr={3} onClick={onOpen}>
-          About Us
+        <Button ref={btnRef} ml={3} onClick={onOpen} bg='brand.100'>
+          <Icon as={FaHorse} color="white" />
         </Button>
         <Drawer
           isOpen={isOpen}
@@ -35,7 +37,7 @@ function AboutDrawer() {
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent>
+          <DrawerContent bg='brand.100' color="white">
             <DrawerCloseButton />
             <DrawerHeader>About Rachel & Jupiter</DrawerHeader>
   

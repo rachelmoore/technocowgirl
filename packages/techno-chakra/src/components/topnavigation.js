@@ -12,9 +12,11 @@ import {
   Heading,
   Text,
   Image,
+  Icon,
   Link as ChakraLink,
   useDisclosure
 } from '@chakra-ui/react';
+import { FiMenu } from "react-icons/fi";
 import Link from "@frontity/components/link";
 
 function TopNavigation() {
@@ -23,8 +25,8 @@ function TopNavigation() {
   
     return (
       <>
-        <Button ref={btnRef} mr={3} onClick={onOpen}>
-          Navigation
+        <Button ref={btnRef} ml={3} mr={3} onClick={onOpen} bg='brand.400'>
+        <Icon as={FiMenu} color="white" />
         </Button>
         <Drawer
           isOpen={isOpen}
@@ -33,7 +35,7 @@ function TopNavigation() {
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent>
+          <DrawerContent bg='brand.400' color="white">
             <DrawerCloseButton />
             <DrawerHeader>Navigation</DrawerHeader>
   
