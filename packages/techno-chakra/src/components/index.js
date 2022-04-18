@@ -1,5 +1,16 @@
 import React, {useState, useEffect} from "react";
 import { connect, Global, css, styled, Head } from "frontity";
+import {
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure
+} from '@chakra-ui/react'
 import Link from "@frontity/components/link";
 import Switch from "@frontity/components/switch";
 import GoodreadsBookshelf from "react-goodreads-shelf";
@@ -10,6 +21,9 @@ import Error from "./error";
 import List from "./list";
 import Post from "./post";
 import Page from "./page";
+import AboutDrawer from "./aboutdrawer";
+import Bookshelf from "./bookshelf";
+import TopNavigation from "./topnavigation";
 import tcsitesunset from '../assets/tcsitesunset.jpg';
 import tcsitewalkingrachel from '../assets/tcsitewalkingrachel.jpg';
 import tcsiteside from '../assets/tcsiteside.jpg';
@@ -20,6 +34,7 @@ const Root = ({ state, actions }) => {
   console.log('isFetching', data.isFetching)
   const [mobileOS, setMobileOS] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const { isOpen, onOpen, onClose } = useDisclosure()
   // const [loading, setLoading] = useState(data.isFetching);
   const getMobileOS = () => {
     const ua = navigator.userAgent
@@ -46,105 +61,82 @@ useEffect(() => {
   return (
     <ChakraProvider>
       <Container>
-      <Head>
-        <title>Techno Cowgirl</title>
-        <meta
-          name="description"
-          content="No, my vet can't hook you up with ketamine."
+        <Head>
+          <title>Techno Cowgirl</title>
+          <meta
+            name="description"
+            content="No, my vet can't hook you up with ketamine."
+          />
+        </Head>
+        <Global
+          styles={css`
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          html {
+            font-family: "system-ui, Verdana, Arial, sans-serif";
+          }
+          li {
+            line-height: 1.85em;
+          }
+          iframe {
+            width: 100% !important;
+          }
+          .imgur-video {
+            @media (max-width: 600px) {
+              width: 90vw;
+            }
+          }
+          figure {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            @media (max-width: 600px) {
+              max-width: 90vw;
+            }
+          }
+          li {
+            margin-bottom: 10px;
+            line-height: 1.55em;
+            font-size: 17px;
+          }
+        `}
         />
-      </Head>
-      <Global
-        styles={css`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-        html {
-          font-family: "system-ui, Verdana, Arial, sans-serif";
-        }
-        li {
-          line-height: 1.85em;
-        }
-        iframe {
-          width: 100% !important;
-        }
-        .imgur-video {
-          @media (max-width: 600px) {
-            width: 90vw;
-          }
-        }
-        figure {
-          margin-top: 40px;
-          margin-bottom: 40px;
-          @media (max-width: 600px) {
-            max-width: 90vw;
-          }
-        }
-        li {
-          margin-bottom: 10px;
-          line-height: 1.55em;
-          font-size: 17px;
-        }
-      `}
-      />
-      <Header isPostType={data.isPostType} isPage={data.isPage}>
-      <Menu>
-        <MenuLeft>
-          <Link link="/">Home</Link>
-          <br />
-          <Link link="/about-us">About Us</Link>
-          <br />
-          <Link link="/category/horses">Horses</Link>
-          <br />
-          <Link link="/category/coding">Coding</Link>
-          <br />
-        </MenuLeft>
-        <MenuRight>
-          <a href="instagram.com/techno_cowgirl"><FaInstagram /></a>
-        </MenuRight>
-      </Menu>
-        <HeaderContent>
-          {(mobileOS === "Other") &&
-          <span>Techno Cowgirl</span>
-          }
-          {(mobileOS === "Android" || mobileOS === "iOS") &&
-          <>
-          <span>Techno</span>
-          <div></div>
-          <span>Cowgirl</span>
-          </>
-          }
-        </HeaderContent>
-      </Header>
-      <MainContainer>
-        <Main>
-          <Switch>
-            {/* <Loading when={data.isFetching} /> */}
-            <List when={data.isArchive} />
-            <Post when={data.isPost} />
-            <Page when={data.isPage} />
-            <Error when={data.isError} />
-          </Switch>
-        </Main>
-        {!!sidebarOpen &&
-        <Sidebar>
-          <h2>Rachel & Jupiter</h2>
-          <img src={puppeteer} height="290px" width="290px" />
-          <SidebarBio>
-            <p>Software engineer & lifelong horse nut celebrating the small gains I make with my 7 year old horse Jupiter and with the development of my app!</p>
-            <p>Read more about me and Jupiter <Link link="/about-us">here</Link>.</p>
-          </SidebarBio>
-          <Bookshelf>
-            <h2>Horse Books I Liked</h2>
-            <GoodreadsBookshelf userId="37985894" shelf="horse-books" />
-          </Bookshelf>
-          <SidebarToggle>
-            <button onClick={() => setSidebarOpen(false)}>Close Sidebar</button>
-          </SidebarToggle>
-        </Sidebar>
-        }
-      </MainContainer>
+        <Header isPostType={data.isPostType} isPage={data.isPage}>
+        <Menu>
+          <MenuLeft>
+            <TopNavigation />
+            <br />
+            <AboutDrawer />
+            <br />
+            <Bookshelf />
+          </MenuLeft>
+        </Menu>
+          <HeaderContent>
+            {(mobileOS === "Other") &&
+            <span>Techno Cowgirl</span>
+            }
+            {(mobileOS === "Android" || mobileOS === "iOS") &&
+            <>
+            <span>Techno</span>
+            <div></div>
+            <span>Cowgirl</span>
+            </>
+            }
+          </HeaderContent>
+        </Header>
+        <MainContainer>
+          <Main>
+            <Switch>
+              {/* <Loading when={data.isFetching} /> */}
+              <List when={data.isArchive} />
+              <Post when={data.isPost} />
+              <Page when={data.isPage} />
+              <Error when={data.isError} />
+            </Switch>
+          </Main>
+        </MainContainer>
       </Container>
     </ChakraProvider>
   )
@@ -201,35 +193,6 @@ const HeaderContent = styled.div`
 const MainContainer = styled.div`
   display: flex;
   flex-direction: row;
-`
-
-const Sidebar = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  border-left: 2px solid #AD9044;
-  width: 350px;
-  & > h2 {
-    color: #AD9044;
-    font-family: 'Inconsolata',monospace;
-  }
-  & > img {
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
-  @media (max-width: 600px) {
-    display: none;
-  }
-`
-
-const Bookshelf = styled.div`
-  margin-top: 30px;
-  & > h2 {
-    color: #AD9044;
-    font-family: 'Inconsolata',monospace;
-    margin-bottom: 10px;
-  }
 `
 
 const Main = styled.main`
@@ -301,44 +264,5 @@ const MenuRight = styled.div`
     color: #FFFFFF;
     text-decoration: none;
     font-family: 'Inconsolata', monospace;
-  }
-`
-
-const Button = styled.button`
-  background: #3654A8;
-  border: none;
-  color: #FFFFFF;
-
-  :hover {
-    cursor: pointer;
-    color: #888;
-  }
-`
-
-const SidebarBio = styled.div`
-  width: 90%;
-  text-align: center;
-  & > p {
-    margin-top: 10px;
-  }
-  a {
-    color: #AD9044;
-    letter-spacing: 2px;
-    text-decoration: none;
-  }
-  a:hover {
-    color: #FFFFFF;
-  }
-`
-
-const SidebarToggle = styled.div`
-  margin-top: 20px;
-  & > button {
-    background-color: #AD9044;
-    color: #FFFFFF;
-    font-size: 20px;
-    padding: 10px;
-    font-weight: 500;
-    border: none;
   }
 `
