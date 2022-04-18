@@ -106,25 +106,27 @@ const theme = extendTheme({
         `}
         />
         <Header isPostType={data.isPostType} isPage={data.isPage}>
-        <Flex direction="row" align="center" justify="flex-end" height="70px" width="100%">
-          <AboutDrawer />
-          <br />
-          <Bookshelf />
-          <br />
-          <TopNavigation />
-        </Flex>
-          <HeaderContent>
-            {(mobileOS === "Other") &&
-            <span>Techno Cowgirl</span>
-            }
-            {(mobileOS === "Android" || mobileOS === "iOS") &&
-            <>
-            <span>Techno</span>
-            <div></div>
-            <span>Cowgirl</span>
-            </>
-            }
-          </HeaderContent>
+          <Flex direction="row" align="center" justify="space-between">
+            <HeaderContent>
+              {(mobileOS === "Other") &&
+              <span>Techno Cowgirl</span>
+              }
+              {(mobileOS === "Android" || mobileOS === "iOS") &&
+              <>
+              <span>Techno</span>
+              <div></div>
+              <span>Cowgirl</span>
+              </>
+              }
+            </HeaderContent>
+            <Flex direction="row" align="center" justify="flex-end" height="70px" width="100%">
+              <AboutDrawer />
+              <br />
+              <Bookshelf />
+              <br />
+              <TopNavigation />
+            </Flex>
+          </Flex>
         </Header>
         <MainContainer>
           <Main>
@@ -164,9 +166,9 @@ h1 {
 `
 
 const HeaderContent = styled.div`
-  max-width: 800px;
-  padding: 2em 1em;
-  margin: auto;
+  padding: 1.5em 1em;
+  margin-left: 10px;
+  width: 1015px;
   h1 {
     font-family: 'Rye', cursive;
   }
