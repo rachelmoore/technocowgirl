@@ -1,8 +1,20 @@
 import React, {useState, useEffect} from "react"
 import { connect, Global, css, styled, Head } from "frontity"
+import {
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure
+} from '@chakra-ui/react'
 import Link from "@frontity/components/link"
 import Switch from "@frontity/components/switch"
 import GoodreadsBookshelf from "react-goodreads-shelf";
+import { ChakraProvider } from '@chakra-ui/react'
 import { FaInstagram } from 'react-icons/fa';
 import Loading from "./loading"
 import Error from "./error"
@@ -19,6 +31,8 @@ const Root = ({ state, actions }) => {
   console.log('isFetching', data.isFetching)
   const [mobileOS, setMobileOS] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [placement, setPlacement] = useState('right')
+  const { isOpen, onOpen, onClose } = useDisclosure()
   // const [loading, setLoading] = useState(data.isFetching);
   const getMobileOS = () => {
     const ua = navigator.userAgent
@@ -43,7 +57,7 @@ useEffect(() => {
 // }, [data]);  
 
   return (
-    <>
+    <ChakraProvider>
       <Container>
       <Head>
         <title>Techno Cowgirl</title>
@@ -100,6 +114,9 @@ useEffect(() => {
           <br />
         </MenuLeft>
         <MenuRight>
+          <Button colorScheme='orange' onClick={onOpen}>
+            Open Bookshelf
+          </Button>
           <a href="instagram.com/techno_cowgirl"><FaInstagram /></a>
         </MenuRight>
       </Menu>
@@ -126,26 +143,22 @@ useEffect(() => {
             <Error when={data.isError} />
           </Switch>
         </Main>
-        {!!sidebarOpen &&
-        <Sidebar>
-          <h2>Rachel & Jupiter</h2>
+          <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
+            <DrawerOverlay />
+            <DrawerContent>
+            <h2>Rachel & Jupiter</h2>
           <img src={puppeteer} height="290px" width="290px" />
-          <SidebarBio>
             <p>Software engineer & lifelong horse nut celebrating the small gains I make with my 7 year old horse Jupiter and with the development of my app!</p>
             <p>Read more about me and Jupiter <Link link="/about-us">here</Link>.</p>
-          </SidebarBio>
-          <Bookshelf>
-            <h2>Horse Books I Liked</h2>
-            <GoodreadsBookshelf userId="37985894" shelf="horse-books" />
-          </Bookshelf>
-          <SidebarToggle>
-            <button onClick={() => setSidebarOpen(false)}>Close Sidebar</button>
-          </SidebarToggle>
-        </Sidebar>
-        }
+              <DrawerHeader borderBottomWidth='1px'>Horse Books I Liked</DrawerHeader>
+              <DrawerBody>
+                <GoodreadsBookshelf userId="37985894" shelf="horse-books" />
+              </DrawerBody>
+            </DrawerContent>
+          </Drawer>
       </MainContainer>
       </Container>
-    </>
+    </ChakraProvider>
   )
 }
 
@@ -303,16 +316,16 @@ const MenuRight = styled.div`
   }
 `
 
-const Button = styled.button`
-  background: #3654A8;
-  border: none;
-  color: #FFFFFF;
+// const Button = styled.button`
+//   background: #3654A8;
+//   border: none;
+//   color: #FFFFFF;
 
-  :hover {
-    cursor: pointer;
-    color: #888;
-  }
-`
+//   :hover {
+//     cursor: pointer;
+//     color: #888;
+//   }
+// `
 
 const SidebarBio = styled.div`
   width: 90%;

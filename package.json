@@ -17,6 +17,9 @@
   },
   "prettier": {},
   "dependencies": {
+    "@chakra-ui/react": "^1.8.8",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "@frontity/core": "^1.14.3",
     "@frontity/google-analytics": "^2.1.0",
     "@frontity/html2react": "^1.7.0",
@@ -26,6 +29,7 @@
     "@frontity/wp-source": "^1.11.5",
     "arizona-theme": "file:packages/arizona-theme",
     "dayjs": "^1.10.7",
+    "framer-motion": "4.1.17",
     "frontity": "^1.16.1",
     "react-goodreads-shelf": "^2.3.0",
     "react-icons": "^4.3.1",
