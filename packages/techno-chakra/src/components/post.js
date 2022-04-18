@@ -1,3 +1,6 @@
+import {
+  Heading
+} from "@chakra-ui/react";
 import React, { useState } from "react"
 import { connect, styled, Head } from "frontity"
 import dayjs from "dayjs"
@@ -21,7 +24,11 @@ const Post = ({ actions, state, libraries }) => {
         <title>{post.title.rendered}</title>
         <meta name="description" content={post.excerpt.rendered} />
       </Head>
-      <h2><Html2React html={post.title.rendered} /></h2>
+      <PostTitle>
+        <Heading size="lg">
+          <Html2React html={post.title.rendered} />
+        </Heading>
+      </PostTitle>
       <PostInfo>
         <p>
           <strong>Posted: </strong>
@@ -87,6 +94,39 @@ const PostInfo = styled.div`
   & > p {
     margin: 0;
   }
+`
+
+const PostTitle = styled.div`
+    -webkit-animation: colorchange 20s infinite alternate;
+    -moz-animation: colorchange 20s infinite alternate;
+    animation: colorchange 20s infinite alternate;
+
+    @keyframes colorchange {
+    0% {
+      color: #3AAEC2;
+    }
+    
+    10% {
+      color: #FD05E9;
+    }
+    
+    25% {
+      color: yellow;
+    }
+    
+    50% {
+      color: #EE0300;
+    }
+    
+    
+    75% {
+      color: yellow;
+    }
+
+    100% {
+      color: #FD05E9;
+    }
+}
 `
 
 const CommentInfo = styled.div`

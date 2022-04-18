@@ -25,7 +25,6 @@ import puppeteer from '../assets/puppeteer.gif';
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
-  console.log('isFetching', data.isFetching)
   const [mobileOS, setMobileOS] = useState(false)
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)")
   const [isLargerThan1015] = useMediaQuery("(min-width: 1015px)")
@@ -109,20 +108,20 @@ const theme = extendTheme({
         `}
         />
         <Header isPostType={data.isPostType} isPage={data.isPage}>
-          <Flex direction="row" align="center" justify="space-between">
-            {isLargerThan1015 &&            
-              <HeaderContent>
+          <Flex direction="row" align="center" justify="space-between" pt={1}>
+            {isLargerThan800 &&            
+              <TitleMenu>
                 {(mobileOS === "Other") &&
-                <span>Techno Cowgirl</span>
+                <SiteTitle>Techno Cowgirl</SiteTitle>
                 }
                 {(mobileOS === "Android" || mobileOS === "iOS") &&
                 <>
-                <span>Techno</span>
+                <SiteTitle>Techno</SiteTitle>
                 <div></div>
-                <span>Cowgirl</span>
+                <SiteTitle>Cowgirl</SiteTitle>
                 </>
                 }
-              </HeaderContent>
+              </TitleMenu>
             }
             <Flex direction="row" align="center" justify="flex-end" height="70px" width="100%">
               <AboutDrawer />
@@ -135,13 +134,13 @@ const theme = extendTheme({
           {!isLargerThan800 &&            
               <HeaderContent>
                 {(mobileOS === "Other") &&
-                <span>Techno Cowgirl</span>
+                <SiteTitle>Techno Cowgirl</SiteTitle>
                 }
                 {(mobileOS === "Android" || mobileOS === "iOS") &&
                 <>
-                <span>Techno</span>
+                <SiteTitle>Techno</SiteTitle>
                 <div></div>
-                <span>Cowgirl</span>
+                <SiteTitle>Cowgirl</SiteTitle>
                 </>
                 }
               </HeaderContent>
@@ -184,23 +183,15 @@ h1 {
 }
 `
 
-const HeaderContent = styled.div`
-  padding: 1.5em 1em;
-  margin-left: 10px;
-  @media (min-width: 1015px) {
-    width: 1015px;
-  }
-  h1 {
-    font-family: 'Rye', cursive;
-  }
-  span {
-   font-family: 'Rye', cursive;
+const SiteTitle = styled.span`
+  font-family: 'Rye', cursive;
    letter-spacing: 5px;
    font-size: 50px;
    font-weight: bold;
    -webkit-animation: colorchange 20s infinite alternate;
     -moz-animation: colorchange 20s infinite alternate;
     animation: colorchange 20s infinite alternate;
+    
 
     @keyframes colorchange {
     0% {
@@ -227,20 +218,29 @@ const HeaderContent = styled.div`
     100% {
       color: #FD05E9;
     }
-}
+`
 
-   /* background-image: linear-gradient(
-	to right,
-	#462523 0,
-       	#cb9b51 22%, 
-	#f6e27a 45%,
-	#f6f2c0 50%,
-	#f6e27a 55%,
-	#cb9b51 78%,
-	#462523 100%
-	);
-   color:transparent;
-   -webkit-background-clip:text; */
+const TitleMenu = styled.div`
+  padding: 1.5em 1em;
+  margin-left: 10px;
+  @media (min-width: 1015px) {
+    width: 1015px;
+  }
+  h1 {
+    font-family: 'Rye', cursive;
+  }
+}
+`
+
+const HeaderContent = styled.div`
+  padding: 1.5em 1em;
+  margin-left: 10px;
+  @media (min-width: 1015px) {
+    width: 1015px;
+  }
+  h1 {
+    font-family: 'Rye', cursive;
+  }
 }
 `
 
