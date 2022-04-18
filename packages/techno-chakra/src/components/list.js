@@ -149,8 +149,7 @@ const PostTitle = styled.div`
     border-radius: 100px 100px 0px 0px;
     background-color: black;
     text-align: center;
-    color: #EE0300;
-    /* -webkit-animation: colorchange 20s infinite alternate;
+    -webkit-animation: colorchange 20s infinite alternate;
     -moz-animation: colorchange 20s infinite alternate;
     animation: colorchange 20s infinite alternate;
 
@@ -179,5 +178,5 @@ const PostTitle = styled.div`
     100% {
       color: #FD05E9;
     }
-} */
+}
 `

@@ -1,68 +1,17 @@
 {
   "errors": [],
   "warnings": [],
-  "hash": "62c9e9526393ad8ce311",
+  "hash": "e6bfbc9970765f99f642",
   "publicPath": "/static/",
   "outputPath": "/Users/rachelmoore/Desktop/Websites/technocowgirl/build/static",
   "assetsByChunkName": {
     "technocowgirl": [
       "technocowgirl.module.js",
-      "technocowgirl.ae2e8c5cd6ca74bd5294.hot-update.js"
+      "technocowgirl.62c9e9526393ad8ce311.hot-update.js"
     ]
   },
-  "assets": [
-    {
-      "name": "0.module.js",
-      "size": 78352,
-      "chunks": [
-        0
-      ],
-      "chunkNames": [],
-      "info": {},
-      "emitted": true
-    },
-    {
-      "name": "images/puppeteer.gif",
-      "size": 7609619,
-      "chunks": [],
-      "chunkNames": [],
-      "info": {
-        "sourceFilename": "packages/techno-chakra/src/assets/puppeteer.gif"
-      },
-      "emitted": true
-    },
-    {
-      "name": "images/tcsiteside.jpg",
-      "size": 6523862,
-      "chunks": [],
-      "chunkNames": [],
-      "info": {
-        "sourceFilename": "packages/techno-chakra/src/assets/tcsiteside.jpg"
-      },
-      "emitted": true
-    },
-    {
-      "name": "images/tcsitesunset.jpg",
-      "size": 2306209,
-      "chunks": [],
-      "chunkNames": [],
-      "info": {
-        "sourceFilename": "packages/techno-chakra/src/assets/tcsitesunset.jpg"
-      },
-      "emitted": true
-    },
-    {
-      "name": "images/tcsitewalkingrachel.jpg",
-      "size": 5847830,
-      "chunks": [],
-      "chunkNames": [],
-      "info": {
-        "sourceFilename": "packages/techno-chakra/src/assets/tcsitewalkingrachel.jpg"
-      },
-      "emitted": true
-    }
-  ],
-  "filteredAssets": 3,
+  "assets": [],
+  "filteredAssets": 8,
   "namedChunkGroups": {
     "technocowgirl": {
       "chunks": [
@@ -70,7 +19,7 @@
       ],
       "assets": [
         "technocowgirl.module.js",
-        "technocowgirl.ae2e8c5cd6ca74bd5294.hot-update.js"
+        "technocowgirl.62c9e9526393ad8ce311.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -88,7 +37,7 @@
       "id": "technocowgirl",
       "files": [
         "technocowgirl.module.js",
-        "technocowgirl.ae2e8c5cd6ca74bd5294.hot-update.js"
+        "technocowgirl.62c9e9526393ad8ce311.hot-update.js"
       ]
     }
   ]
