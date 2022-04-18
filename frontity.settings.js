@@ -17,7 +17,7 @@ const settings = {
   },
   "packages": [
     {
-      "name": "arizona-theme",
+      "name": "techno-chakra",
       "state": {
         "theme": {
           "menu": [
