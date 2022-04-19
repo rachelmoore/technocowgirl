@@ -1,5 +1,12 @@
 import {
-  Heading
+  Heading,
+  Flex,
+  Stat,
+  StatLabel,
+  StatNumber,
+  StatHelpText,
+  StatArrow,
+  StatGroup,
 } from "@chakra-ui/react";
 import React, { useState } from "react"
 import { connect, styled, Head } from "frontity"
@@ -19,81 +26,74 @@ const Post = ({ actions, state, libraries }) => {
   const formattedDate = dayjs(post.date).format("DD MMMM YYYY")
 
   return (
-    <div>
+    <Flex direction="column" align="center" mb={5}>
       <Head>
         <title>{post.title.rendered}</title>
         <meta name="description" content={post.excerpt.rendered} />
       </Head>
-      <PostTitle>
-        <Heading size="lg">
-          <Html2React html={post.title.rendered} />
-        </Heading>
-      </PostTitle>
-      <PostInfo>
-        <p>
-          <strong>Posted: </strong>
-          {formattedDate}
-        </p>
-        <p>
-          <strong>Author: </strong>
-          {author.name}
-        </p>
-      </PostInfo>
+      <PostContent>
+        <PostTitle>
+          <Heading size="lg">
+            <Html2React html={post.title.rendered} />
+          </Heading>
+        </PostTitle>
+          <Stat>
+            <StatLabel>Author: {author.name}</StatLabel>
+            <StatHelpText>Posted: {formattedDate}</StatHelpText>
+          </Stat>
+          <Html2React html={post.content.rendered} />
+      </PostContent>
+          
+          {!showComments && 
+          <CommentToggle>
+            <button onClick={() => setShowComments(true)}>View Comments</button>
+          </CommentToggle>
+          }
+          {!showCommentForm && 
+          <CommentToggle>
+            <button onClick={() => setShowCommentForm(true)}>Leave a Comment</button>
+          </CommentToggle>
+          }
 
-        <Html2React html={post.content.rendered} />
-        
-        {!showComments && 
-        <CommentToggle>
-          <button onClick={() => setShowComments(true)}>View Comments</button>
-        </CommentToggle>
-        }
-        {!showCommentForm && 
-        <CommentToggle>
-          <button onClick={() => setShowCommentForm(true)}>Leave a Comment</button>
-        </CommentToggle>
-        }
-
-        {!!showComments && 
-          <Comments>
-            {commentsKeys.map((commentKey)  => 
-            <Comment>
-              <img src={comments[commentKey].author_avatar_urls[96]} />
-              <CommentInfo>
-                <CommentMeta>
-                  <p><strong>Posted:          </strong>
-                    {dayjs(comments[commentKey].date).format("DD MMMM YYYY")}
-                  </p>
-                  <p>
-                    <strong>Author:          </strong>
-                    {comments[commentKey].author_name}
-                  </p>
-                </CommentMeta>
-                <p><Html2React html={comments[commentKey].content.rendered} /></p>
-              </CommentInfo>
-            </Comment>
-            )}
-          </Comments>
-        }
-        
-        {!!showCommentForm && 
-        <CommentsForm actions={actions} state={state} postId={data.id} />
-        }
-
-    </div>
+          {!!showComments && 
+            <Comments>
+              {commentsKeys.map((commentKey)  => 
+              <Comment>
+                <img src={comments[commentKey].author_avatar_urls[96]} />
+                <CommentInfo>
+                  <CommentMeta>
+                    <p><strong>Posted:          </strong>
+                      {dayjs(comments[commentKey].date).format("DD MMMM YYYY")}
+                    </p>
+                    <p>
+                      <strong>Author:          </strong>
+                      {comments[commentKey].author_name}
+                    </p>
+                  </CommentMeta>
+                  <p><Html2React html={comments[commentKey].content.rendered} /></p>
+                </CommentInfo>
+              </Comment>
+              )}
+            </Comments>
+          }
+          
+          {!!showCommentForm && 
+          <CommentsForm actions={actions} state={state} postId={data.id} />
+          }
+    </Flex>
   )
 }
 
-export default connect(Post)
+export default connect(Post);
 
-const PostInfo = styled.div`
-  margin-bottom: 1em;
-  padding: 0.5em;
-  border-left: 4px solid #AD9044;
-  font-size: 0.8em;
-
-  & > p {
-    margin: 0;
-  }
+const PostContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  background-color: #FFFFFF;
+  border-radius: 50px 50px 50px 50px;
+  padding: 20px;
+  margin-top: 60px;
 `
 
 const PostTitle = styled.div`
@@ -173,7 +173,7 @@ const Comment = styled.div`
 `
 
 const Comments = styled.div`
-  margin-top: 50px;
+  margin-top: 20px;
 `
 
 const CommentToggle = styled.div`

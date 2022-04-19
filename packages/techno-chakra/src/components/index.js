@@ -88,10 +88,12 @@ const theme = extendTheme({
             }
           }
           figure {
-            margin-top: 40px;
-            margin-bottom: 40px;
+            margin-top: 10px;
+            margin-bottom: 10px;
             @media (max-width: 600px) {
               max-width: 90vw;
+              margin-top: 40px;
+              margin-bottom: 40px;
             }
           }
           li {
