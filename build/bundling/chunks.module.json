@@ -1,0 +1,44 @@
+{
+  "errors": [],
+  "warnings": [],
+  "hash": "46e2f79caa2bcb17194a",
+  "publicPath": "/static/",
+  "outputPath": "/Users/rachelmoore/Desktop/Websites/technocowgirl/build/static",
+  "assetsByChunkName": {
+    "technocowgirl": [
+      "technocowgirl.module.js",
+      "technocowgirl.75a034630a37b1aa7223.hot-update.js"
+    ]
+  },
+  "assets": [],
+  "filteredAssets": 9,
+  "namedChunkGroups": {
+    "technocowgirl": {
+      "chunks": [
+        "technocowgirl"
+      ],
+      "assets": [
+        "technocowgirl.module.js",
+        "technocowgirl.75a034630a37b1aa7223.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "generator": "loadable-components",
+  "chunks": [
+    {
+      "id": 0,
+      "files": [
+        "0.module.js"
+      ]
+    },
+    {
+      "id": "technocowgirl",
+      "files": [
+        "technocowgirl.module.js",
+        "technocowgirl.75a034630a37b1aa7223.hot-update.js"
+      ]
+    }
+  ]
+}

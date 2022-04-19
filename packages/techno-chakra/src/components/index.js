@@ -104,7 +104,7 @@ const theme = extendTheme({
         `}
         />
         <Header isPostType={data.isPostType} isPage={data.isPage}>
-            <Flex direction="row" align="center" justify="space-between" pt={1}>
+            <Flex direction="row" align="center" justify="space-between" pt={5}>
               {isLargerThan800 &&            
                 <TitleMenu>
                   {(mobileOS === "Other") &&
@@ -219,9 +219,6 @@ const SiteTitle = styled.span`
 const TitleMenu = styled.div`
   padding: 1.5em 1em;
   margin-left: 10px;
-  @media (min-width: 1015px) {
-    width: 1015px;
-  }
   h1 {
     font-family: 'Rye', cursive;
   }
@@ -231,9 +228,6 @@ const TitleMenu = styled.div`
 const HeaderContent = styled.div`
   padding: 1.5em 1em;
   margin-left: 10px;
-  @media (min-width: 1015px) {
-    width: 1015px;
-  }
   h1 {
     font-family: 'Rye', cursive;
   }
@@ -243,6 +237,9 @@ const HeaderContent = styled.div`
 const MainContainer = styled.div`
   display: flex;
   flex-direction: row;
+  @media (min-width: 800px) {
+    border-top: 5px solid #000000;
+  }
 `
 
 const Main = styled.main`
