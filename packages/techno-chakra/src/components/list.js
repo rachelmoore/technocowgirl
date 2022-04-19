@@ -15,6 +15,11 @@ const List = ({ state, actions, libraries }) => {
     1: "#EE0300",
     2: "#6A3A80",
   }
+  const borderDict = {
+    0: "0px 0px 5px 5px",
+    1: "5px 5px 5px 0px",
+    2: "5px 0px 0px 5px"
+  }
 
   useEffect(() => {
     if (isLargerThan800) {
@@ -37,8 +42,8 @@ const List = ({ state, actions, libraries }) => {
         return (
             <ItemContainer>
             {fullScreen && (idx % 2 !== 0) &&
-              <Flex direction="row" width="100%" sx={{ '--custom-bg-odd': colorDict[idx]}}>
-                <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-odd)'>
+              <Flex direction="row" width="100%" sx={{ '--custom-bg-odd': colorDict[idx], '--custom-border': borderDict[idx]}}>
+                <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-odd)' style={{borderWidth: 'var(--custom-border)', borderStyle: 'solid', borderColor: '#000000'}}>
                   <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
                     <PostTitle>
                       <Heading size="lg" pb={5} pt={5}>{post.title.rendered}</Heading>
@@ -55,8 +60,8 @@ const List = ({ state, actions, libraries }) => {
               </Flex>
             }
             {fullScreen && (idx % 2 === 0) &&
-              <Flex direction="row-reverse" width="100%" sx={{ '--custom-bg-even': colorDict[idx]}}>
-                <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-even)'>
+              <Flex direction="row-reverse" width="100%" sx={{ '--custom-bg-even': colorDict[idx], '--custom-border': borderDict[idx]}}>
+                <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-even)' style={{borderWidth: 'var(--custom-border)', borderStyle: 'solid', borderColor: '#000000'}}>
                   <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
                     <PostTitle>
                       <Heading size="lg" pb={5} pt={5}>{post.title.rendered}</Heading>
