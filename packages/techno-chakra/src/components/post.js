@@ -7,6 +7,7 @@ import {
   StatHelpText,
   StatArrow,
   StatGroup,
+  Button
 } from "@chakra-ui/react";
 import React, { useState } from "react"
 import { connect, styled, Head } from "frontity"
@@ -56,14 +57,14 @@ const Post = ({ actions, state, libraries }) => {
         </PostContainer>
           
           {!showComments && 
-          <CommentToggle>
-            <button onClick={() => setShowComments(true)}>View Comments</button>
-          </CommentToggle>
+          // <CommentToggle>
+            <Button bg="brand.100" color="#FFFFFF" onClick={() => setShowComments(true)} mb={5}>View Comments</Button>
+          // </CommentToggle>
           }
           {!showCommentForm && 
-          <CommentToggle>
-            <button onClick={() => setShowCommentForm(true)}>Leave a Comment</button>
-          </CommentToggle>
+          // <CommentToggle>
+            <Button bg="#EE0300" color="#FFFFFF" onClick={() => setShowCommentForm(true)} mb={5}>Leave a Comment</Button>
+          // </CommentToggle>
           }
 
           {!!showComments && 
@@ -121,8 +122,6 @@ const PostContent = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 800px;
-  /* border-radius: 50px 50px 50px 50px; */
-  /* margin-top: 60px; */
   background-color: #FFFFFF;
   color: #000000;
   border-radius: 100px 100px 50px 50px;
@@ -142,12 +141,7 @@ const PostTitle = styled.div`
     text-align: center;
 
     border-radius: 100px 100px 0px 0px;
-      background-color: #000000;
-
-    @media (max-width: 800px) {
-      border-radius: 100px 100px 0px 0px;
-      background-color: #000000;
-    }
+    background-color: #000000;
 
     @keyframes colorchange {
     0% {
@@ -224,14 +218,14 @@ const Comments = styled.div`
   margin-top: 20px;
 `
 
-const CommentToggle = styled.div`
-  margin-top: 20px;
-  & > button {
-    background-color: #AD9044;
-    color: #FFFFFF;
-    font-size: 20px;
-    padding: 10px;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-`
+// const CommentToggle = styled.div`
+//   margin-top: 20px;
+//   & > button {
+//     background-color: #AD9044;
+//     color: #FFFFFF;
+//     font-size: 20px;
+//     padding: 10px;
+//     font-weight: 500;
+//     text-transform: uppercase;
+//   }
+// `

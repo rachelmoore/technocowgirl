@@ -1,3 +1,4 @@
+import { FormLabel, Input, Textarea, Button, Text } from "@chakra-ui/react";
 import React from "react";
 import { connect, styled } from "frontity";
 
@@ -15,10 +16,10 @@ const CommentsForm = ({ actions, state, postId }) => {
         {/* {form?.isSubmitting && <Loading />} */}
         
         <Field>
-            <label>
+            <FormLabel>
                 Name:
-            </label>
-            <input
+            </FormLabel>
+            <Input
                 name="author_name"
                 onChange={(e) =>
                 actions.comments.updateFields(postId, {
@@ -31,10 +32,10 @@ const CommentsForm = ({ actions, state, postId }) => {
         </Field>
         
         <Field>
-            <label>
+            <FormLabel>
                 Email:
-            </label>
-            <input
+            </FormLabel>
+            <Input
                 name="author_email"
                 onChange={(e) =>
                 actions.comments.updateFields(postId, {
@@ -47,10 +48,10 @@ const CommentsForm = ({ actions, state, postId }) => {
         </Field>
 
         <FieldTextArea>
-            <label>
+            <FormLabel>
                 Content:
-            </label>
-            <textarea
+            </FormLabel>
+            <Textarea
                 name="content"
                 onChange={(e) =>
                 actions.comments.updateFields(postId, {
@@ -74,7 +75,7 @@ const CommentsForm = ({ actions, state, postId }) => {
         </div>
         
         <SubmitButton>
-            <input type="submit" />
+            <Button bg="#EE0300" mt={5} type="submit"><Text color="white">Submit</Text></Button>
         </SubmitButton>
       </form>
     </LeaveComment>
@@ -98,12 +99,14 @@ const Field = styled.div`
   margin-top: 10px;
   & > input {
     width: 100%;
-    border: 2px solid #AD9044;
+    border: 2px solid #EE0300;
     height: 30px;
+    outline: 2px solid #FD05E9;
+    outline-offset: 2px;
   }
   & > label {
     font-size: 18px;
-    color: #AD9044;
+    color: #FFFFFF;
     margin-bottom: 15px;
   }
 `
@@ -113,21 +116,27 @@ const FieldTextArea = styled.div`
   flex-direction: column;
   margin-top: 10px;
   & > textarea {
-    border: 2px solid #AD9044;
+    border: 2px solid #EE0300;
     height: 100px;
+    outline: 2px solid #FD05E9;
+    outline-offset: 2px;
   }
   & > label {
     font-size: 18px;
-    color: #AD9044;
+    color: #FFFFFF;
     margin-bottom: 15px;
   }
 `
 
 const SubmitButton = styled.div`
-  margin-top: 30px;
+  margin-top: 10px;
+  button { 
+    background: #EE0300;
+    p {
+      color: #FFFFFF;
+    }
+  }
   & > input {
-    background-color: #AD9044;
-    color: #FFFFFF;
     font-size: 20px;
     padding: 10px;
     font-weight: 500;
