@@ -1,12 +1,19 @@
-import { Heading } from "@chakra-ui/react";
+import { Heading, Text, Flex, Image, useMediaQuery } from "@chakra-ui/react";
 import React from "react"
 import { connect, styled } from "frontity"
 import Link from "@frontity/components/link"
 import Loading from "./loading";
 
 const List = ({ state, actions, libraries }) => {
-  const data = state.source.get(state.router.link)
-  const Html2React = libraries.html2react.Component
+  const data = state.source.get(state.router.link);
+  const Html2React = libraries.html2react.Component;
+  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
+  const [isLargerThan1015] = useMediaQuery("(min-width: 1015px)");
+  const colorDict = {
+    0: "#3AAEC2",
+    1: "#EE0300",
+    2: "#6A3A80",
+  }
   console.log('data', data)
 
   if (data.isFetching) {
@@ -15,13 +22,50 @@ const List = ({ state, actions, libraries }) => {
 
   if (!data.isFetching) {
     return (
-      <Items>
-        {data.items.map((item) => {
+      <Flex direction="column" width="100%">
+        {data.items.map((item, idx) => {
           const post = state.source[item.type][item.id]
-          {console.log(post)}
-          return (
+        return (
             <ItemContainer>
-              <Link key={item.id} link={post.link}>
+            {isLargerThan800 && (idx % 2 !== 0) &&
+              <Flex direction="row" width="100%" sx={{ '--custom-bg-odd': colorDict[idx]}}>
+                <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-odd)'>
+                  <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
+                    <PostTitle>
+                      <Heading size="lg" pb={5} pt={5}>{post.title.rendered}</Heading>
+                    </PostTitle>
+                    <br />
+                  </Link>
+                  <Html2React html={post.excerpt.rendered} />
+                </Flex>
+                <Flex direction="column" width="50%" style={{ background: `url("${state.source.attachment[post.featured_media].source_url}")`, backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
+                  {/* {state.source.attachment[post.featured_media] &&
+                    <Image src={state.source.attachment[post.featured_media].source_url} />
+                    } */}
+                </Flex>
+              </Flex>
+            }
+            {isLargerThan800 && (idx % 2 === 0) &&
+              <Flex direction="row-reverse" width="100%" sx={{ '--custom-bg-even': colorDict[idx]}}>
+                <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-even)'>
+                  <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
+                    <PostTitle>
+                      <Heading size="lg" pb={5} pt={5}>{post.title.rendered}</Heading>
+                    </PostTitle>
+                    <br />
+                  </Link>
+                  <Html2React html={post.excerpt.rendered} />
+                </Flex>
+                <Flex direction="column" width="50%" style={{ background: `url("${state.source.attachment[post.featured_media].source_url}")`, backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
+                  {/* {state.source.attachment[post.featured_media] &&
+                    <Image src={state.source.attachment[post.featured_media].source_url} />
+                    } */}
+                </Flex>
+              </Flex>
+            }
+          {!isLargerThan800 &&
+            <>
+              <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
                 <PostTitle>
                   <Heading size="lg" pb={5} pt={5}>{post.title.rendered}</Heading>
                 </PostTitle>
@@ -29,16 +73,18 @@ const List = ({ state, actions, libraries }) => {
               </Link>
               <ItemContentContainer>
                 {state.source.attachment[post.featured_media] &&
-                <img src={state.source.attachment[post.featured_media].source_url} />
+                <Image src={state.source.attachment[post.featured_media].source_url} />
                 }
                 <Html2React html={post.excerpt.rendered} />
                 <Link key={item.id} link={post.link}>
                   Read More
                 </Link>
               </ItemContentContainer>
+            </>
+            }
             </ItemContainer>
-          )
-        })}
+          )}
+        )}
         <PrevNextNav>
           {data.previous && (
             <button
@@ -59,7 +105,7 @@ const List = ({ state, actions, libraries }) => {
             </button>
           )}
         </PrevNextNav>
-      </Items>
+      </Flex>
     )
   }
 }
@@ -80,31 +126,44 @@ const Items = styled.div`
     background-color: #EE0300;
   } */
 
-  & > a {
+  /* & > a {
     display: block;
     margin: 6px 0;
     font-size: 1.2em;
     color: #AD9044;
     text-decoration: none;
-  }
+  } */
   }
 `
 
 const ItemContainer = styled.div`
   background-color: #FFFFFF;
   color: #000000;
-  border-radius: 100px 100px 50px 50px;
-  /* padding-left: 20px;
-  padding-right: 20px; */
-  /* padding-bottom: 20px; */
-  max-width: 850px;
-  margin-bottom: 60px;
+  width: 100%;
+  margin-bottom: 0px;
   & > a {
     display: block;
-    margin: 6px 0;
     font-size: 1.2em;
     color: #AD9044;
     text-decoration: none;
+  }
+  p {
+    font-size: 22px;
+    color: #FFFFFF;
+  }
+  h2 {
+      margin-top: 0px;
+      font-size: 36px;
+    }
+  @media (max-width: 800px) {
+    width: 780px;
+    border-radius: 100px 100px 50px 50px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 600px) {
+    width: 350px;
+    border-radius: 100px 100px 50px 50px;
+    margin-bottom: 60px;
   }
 `
 
@@ -118,11 +177,10 @@ const ItemContentContainer = styled.div`
   max-width: 850px;
   margin-bottom: 60px;
   & > a {
-    display: block;
-    margin: 6px 0;
-    font-size: 1.2em;
-    color: #AD9044;
-    text-decoration: none;
+    color: blue;
+    font-family: 'Inconsolata', monospace;
+    text-decoration: underline;
+    letter-spacing: 2px;
   }
 `
 
@@ -146,12 +204,15 @@ const PrevNextNav = styled.div`
 `
 
 const PostTitle = styled.div`
-    border-radius: 100px 100px 0px 0px;
-    background-color: black;
     text-align: center;
     -webkit-animation: colorchange 20s infinite alternate;
     -moz-animation: colorchange 20s infinite alternate;
     animation: colorchange 20s infinite alternate;
+
+    @media (max-width: 800px) {
+      border-radius: 100px 100px 0px 0px;
+      background-color: #000000;
+    }
 
     @keyframes colorchange {
     0% {

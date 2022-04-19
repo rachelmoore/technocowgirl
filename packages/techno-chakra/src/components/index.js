@@ -88,10 +88,12 @@ const theme = extendTheme({
             }
           }
           figure {
-            margin-top: 40px;
-            margin-bottom: 40px;
+            margin-top: 10px;
+            margin-bottom: 10px;
             @media (max-width: 600px) {
               max-width: 90vw;
+              margin-top: 40px;
+              margin-bottom: 40px;
             }
           }
           li {
@@ -161,7 +163,7 @@ export default connect(Root)
 const Container = styled.div`
 background-color: #282c34;
 font-family: 'Roboto';
-color: #FFFFFF;
+/* color: #FFFFFF; */
 min-height: 100vh;
 `
 
@@ -244,14 +246,7 @@ const MainContainer = styled.div`
 `
 
 const Main = styled.main`
-  /* max-width: 800px; */
-  /* width: 80%; */
-  /* width: 100vw; */
-  padding: 1em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: auto;
-
+  width: 100vw;
   img {
     max-width: 100%;
   }
@@ -271,12 +266,18 @@ const Main = styled.main`
     margin-bottom: 1em;
   }
   a {
-    color: #AD9044;
+    color: blue;
     font-family: 'Inconsolata', monospace;
     text-decoration: underline;
     letter-spacing: 2px;
   }
   a:hover {
     color: #FFFFFF;
+  }
+  @media (max-width: 800px) {
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
   }
 `
