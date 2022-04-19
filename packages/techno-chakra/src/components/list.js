@@ -1,5 +1,5 @@
 import { Heading, Text, Flex, Image, useMediaQuery } from "@chakra-ui/react";
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { connect, styled } from "frontity"
 import Link from "@frontity/components/link"
 import Loading from "./loading";
@@ -7,6 +7,7 @@ import Loading from "./loading";
 const List = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link);
   const Html2React = libraries.html2react.Component;
+  const [fullScreen, setFullScreen] = useState(true);
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
   const [isLargerThan1015] = useMediaQuery("(min-width: 1015px)");
   const colorDict = {
@@ -14,7 +15,15 @@ const List = ({ state, actions, libraries }) => {
     1: "#EE0300",
     2: "#6A3A80",
   }
-  console.log('data', data)
+
+  useEffect(() => {
+    if (isLargerThan800) {
+      setFullScreen(true);
+    }
+    else {
+      setFullScreen(false);
+    }
+  }, [isLargerThan800])
 
   if (data.isFetching) {
     return <Loading />
@@ -27,7 +36,7 @@ const List = ({ state, actions, libraries }) => {
           const post = state.source[item.type][item.id]
         return (
             <ItemContainer>
-            {isLargerThan800 && (idx % 2 !== 0) &&
+            {fullScreen && (idx % 2 !== 0) &&
               <Flex direction="row" width="100%" sx={{ '--custom-bg-odd': colorDict[idx]}}>
                 <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-odd)'>
                   <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
@@ -45,7 +54,7 @@ const List = ({ state, actions, libraries }) => {
                 </Flex>
               </Flex>
             }
-            {isLargerThan800 && (idx % 2 === 0) &&
+            {fullScreen && (idx % 2 === 0) &&
               <Flex direction="row-reverse" width="100%" sx={{ '--custom-bg-even': colorDict[idx]}}>
                 <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-even)'>
                   <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
@@ -63,7 +72,7 @@ const List = ({ state, actions, libraries }) => {
                 </Flex>
               </Flex>
             }
-          {!isLargerThan800 &&
+          {!fullScreen &&
             <>
               <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
                 <PostTitle>
@@ -131,15 +140,27 @@ const ItemContainer = styled.div`
       margin-top: 0px;
       font-size: 36px;
     }
+  @media (min-width: 801px) {
+    width: 100%;
+    margin-bottom: 0px;
+  }
   @media (max-width: 800px) {
     width: 780px;
     border-radius: 100px 100px 50px 50px;
     margin-bottom: 60px;
+    p {
+    font-size: 22px;
+    color: #000000;
+  }
   }
   @media (max-width: 600px) {
     width: 350px;
     border-radius: 100px 100px 50px 50px;
     margin-bottom: 60px;
+    p {
+    font-size: 22px;
+    color: #000000;
+  }
   }
 `
 
