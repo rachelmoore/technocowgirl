@@ -76,6 +76,9 @@ const List = ({ state, actions, libraries }) => {
                 <Image src={state.source.attachment[post.featured_media].source_url} />
                 }
                 <Html2React html={post.excerpt.rendered} />
+                <Link key={item.id} link={post.link}>
+                  Read More
+                </Link>
               </ItemContentContainer>
             </>
             }
@@ -174,11 +177,10 @@ const ItemContentContainer = styled.div`
   max-width: 850px;
   margin-bottom: 60px;
   & > a {
-    display: block;
-    margin: 6px 0;
-    font-size: 1.2em;
-    color: #AD9044;
-    text-decoration: none;
+    color: blue;
+    font-family: 'Inconsolata', monospace;
+    text-decoration: underline;
+    letter-spacing: 2px;
   }
 `
 

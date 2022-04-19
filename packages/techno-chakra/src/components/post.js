@@ -25,7 +25,12 @@ const Post = ({ actions, state, libraries }) => {
   const [showComments, setShowComments] = useState(false);
   const formattedDate = dayjs(post.date).format("DD MMMM YYYY")
 
-  return (
+  if (data.isFetching) {
+    return <Loading />
+  }
+
+  if (!data.isFetching) {
+    return (
     <Flex direction="column" align="center" mb={5}>
       <Head>
         <title>{post.title.rendered}</title>
@@ -82,6 +87,7 @@ const Post = ({ actions, state, libraries }) => {
           }
     </Flex>
   )
+}
 }
 
 export default connect(Post);
