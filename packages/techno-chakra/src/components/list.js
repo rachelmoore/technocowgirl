@@ -112,30 +112,6 @@ const List = ({ state, actions, libraries }) => {
 
 export default connect(List)
 
-const Items = styled.div`
-  /* div: nth-of-type(1) {
-    background-color: #3AAEC2;
-  }
-  div: nth-of-type(2) {
-    background-color: #FD05E9;
-  }
-  div: nth-of-type(3) {
-    background-color: #6A3A80;
-  }
-  div: nth-of-type(4) {
-    background-color: #EE0300;
-  } */
-
-  /* & > a {
-    display: block;
-    margin: 6px 0;
-    font-size: 1.2em;
-    color: #AD9044;
-    text-decoration: none;
-  } */
-  }
-`
-
 const ItemContainer = styled.div`
   background-color: #FFFFFF;
   color: #000000;
@@ -174,7 +150,10 @@ const ItemContentContainer = styled.div`
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
-  max-width: 850px;
+  width: 100%;
+  @media (max-width: 800px) {  
+    max-width: 780px;
+  }
   margin-bottom: 60px;
   & > a {
     color: blue;
