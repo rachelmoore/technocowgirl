@@ -50,9 +50,17 @@ const settings = {
       "state": {
         "source": {
           "url": "https://wp.technocowgirl.com",
+          "api": "https://wp.technocowgirl.com/wp-json",
           "params": {
-            "per_page": 5,
+            "per_page": 3,
           },
+          "postTypes": [
+            {
+              type: "cards",
+              endpoint: "cards",
+              archive: "/cards"
+            }
+          ],
         }
       }
     },
