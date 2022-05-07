@@ -4,6 +4,7 @@ import wheel from '../assets/Wheel200px.gif';
 import { connect } from "frontity"
 
 const Error = ({ state }) => {
+    console.log('state', state)
     return (
       <Flex direction="column" align="center">
           <Image src={wheel} />
