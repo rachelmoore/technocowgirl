@@ -147,7 +147,7 @@ const theme = extendTheme({
         <MainContainer>
           <Main>
             <Switch>
-              {/* <Loading when={data.isFetching} /> */}
+              <Loading when={data.isFetching} />
               <List when={data.isArchive} />
               <Post when={data.isPost} />
               <Page when={data.isPage} />
