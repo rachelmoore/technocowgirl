@@ -57,7 +57,7 @@ function AboutDrawer() {
                     mr={3}
                 />
                 <Text fontSize="lg" mb={2} mt={5}>Software engineer & lifelong horse nut celebrating the small gains I make with my 7 year old horse Jupiter and with the development of my app!</Text>
-                <Text fontSize="lg">Read more about me and Jupiter <ChakraLink as={Link} link="/about-us">here</ChakraLink>.</Text>
+                <Text fontSize="lg">Read more about me and Jupiter <ChakraLink as={Link} link="/about-us"><Text color="brand.400" fontWeight="500">here.</Text></ChakraLink></Text>
             </DrawerBody>
 
             <Divider />
