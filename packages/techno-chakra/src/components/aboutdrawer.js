@@ -9,6 +9,10 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
+  Stack,
+  Divider,
+  Box,
+  Flex,
   Heading,
   Text,
   Image,
@@ -17,6 +21,7 @@ import {
   useDisclosure
 } from '@chakra-ui/react';
 import { FaHorse } from "react-icons/fa"
+import { FiMail } from "react-icons/fi"
 import Link from "@frontity/components/link";
 
 import puppeteer from '../assets/puppeteer.gif';
@@ -51,14 +56,21 @@ function AboutDrawer() {
                     alt="Rachel and Jupiter"
                     mr={3}
                 />
-                <Text size="lg" mb={2} mt={5}>Software engineer & lifelong horse nut celebrating the small gains I make with my 7 year old horse Jupiter and with the development of my app!</Text>
-                <Text size="lg">Read more about me and Jupiter <ChakraLink as={Link} link="/about-us">here</ChakraLink>.</Text>
+                <Text fontSize="lg" mb={2} mt={5}>Software engineer & lifelong horse nut celebrating the small gains I make with my 7 year old horse Jupiter and with the development of my app!</Text>
+                <Text fontSize="lg">Read more about me and Jupiter <ChakraLink as={Link} link="/about-us"><Text color="brand.400" fontWeight="500">here.</Text></ChakraLink></Text>
             </DrawerBody>
-  
+
+            <Divider />
+
             <DrawerFooter>
-              <Button variant='outline' mr={3} onClick={onClose}>
-                Cancel
-              </Button>
+              <Stack>
+                <Text fontSize="lg">Why yes, I did make this website myself! Interested in something like this?</Text>
+                <ChakraLink as={Link} href="mailto:rachel@rachelmoore.net" isExternal>
+                  <Button mt={3} variant='outline' borderColor="brand.400" onClick={onClose} size="lg">
+                    <Text color="brand.400" mr={2}>Let's talk.</Text> <Icon as={FiMail} color="brand.400"/>
+                  </Button>
+                </ChakraLink>
+              </Stack>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>

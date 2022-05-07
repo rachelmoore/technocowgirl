@@ -5,12 +5,10 @@ import Link from "@frontity/components/link"
 const List = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link)
   const Html2React = libraries.html2react.Component
-  console.log('data', data)
   return (
     <Items>
       {data.items.map((item) => {
         const post = state.source[item.type][item.id]
-        {console.log(post)}
         return (
             <ItemContainer>
               <Link key={item.id} link={post.link}>

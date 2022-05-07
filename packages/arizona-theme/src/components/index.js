@@ -17,7 +17,6 @@ import puppeteer from '../assets/puppeteer.gif';
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
-  console.log('isFetching', data.isFetching)
   const [mobileOS, setMobileOS] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(true);
   // const [loading, setLoading] = useState(data.isFetching);
