@@ -33,9 +33,6 @@ const technoChakra = {
           });
         });
       },
-      beforeSSR: ({ state, actions }) => {
-        actions.source.fetch(state.source.get("/cards"));
-      },
     },
   },
   libraries: {

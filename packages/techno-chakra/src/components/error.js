@@ -4,7 +4,6 @@ import wheel from '../assets/Wheel200px.gif';
 import { connect, styled } from "frontity"
 
 const Error = ({ state }) => {
-    console.log('state', state)
     return (
         <WheelContainer>
             <Flex width="100%" align="center" justify="center" m={10}>

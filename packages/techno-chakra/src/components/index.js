@@ -26,7 +26,6 @@ import puppeteer from '../assets/puppeteer.gif';
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
-  console.log('data', data);
   const [mobileOS, setMobileOS] = useState(false)
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)")
   const [isLargerThan1015] = useMediaQuery("(min-width: 1015px)")

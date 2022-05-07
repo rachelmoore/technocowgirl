@@ -20,7 +20,7 @@ import {
   const HorseCard = ({ actions, state, libraries }) => {
     const data = state.source.get(state.router.link)
     const post = state.source[data.type][data.id]
-    console.log('post', post)
+    // console.log('post', post)
     const Html2React = libraries.html2react.Component
   
     if (data.isFetching) {
@@ -43,7 +43,7 @@ import {
             </Heading>
             <Image src={state.source.attachment[post.featured_media].source_url} height="400px" />
             <Text mt={1}><Html2React html={post.acf.horse_card_summary} /></Text>
-            <Text pl={10} pr={10}><Html2React html={post.content.rendered} /></Text>
+            <Text p={10}><Html2React html={post.content.rendered} /></Text>
           </CardContent>
       </Flex>
     )
