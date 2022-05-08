@@ -7,21 +7,8 @@
   "assetsByChunkName": {
     "technocowgirl": "technocowgirl.module.js"
   },
-  "assets": [
-    {
-      "name": "technocowgirl.module.js",
-      "size": 18691808,
-      "chunks": [
-        "technocowgirl"
-      ],
-      "chunkNames": [
-        "technocowgirl"
-      ],
-      "info": {},
-      "emitted": true
-    }
-  ],
-  "filteredAssets": 6,
+  "assets": [],
+  "filteredAssets": 7,
   "namedChunkGroups": {
     "technocowgirl": {
       "chunks": [
