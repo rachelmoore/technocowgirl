@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Frontity project",
+  "license": "private",
   "keywords": [
     "frontity"
   ],
@@ -24,9 +25,12 @@
     "@frontity/google-analytics": "^2.1.0",
     "@frontity/html2react": "^1.7.0",
     "@frontity/mars-theme": "./packages/mars-theme",
+    "@frontity/now": "1.2.0",
     "@frontity/tiny-router": "^1.4.3",
     "@frontity/wp-comments": "^1.0.0",
     "@frontity/wp-source": "^1.11.5",
+    "@now/build-utils": "^0.9.4",
+    "@vercel/build-utils": "2.16.0",
     "arizona-theme": "file:packages/arizona-theme",
     "dayjs": "^1.10.7",
     "framer-motion": "4.1.17",
