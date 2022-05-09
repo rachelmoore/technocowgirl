@@ -3,10 +3,7 @@
     "builds": [
       {
         "src": "package.json",
-        "use": "@frontity/now",
-        "dependencies": {
-          "@now/build-utils": "<0.9.4"
-        }
+        "use": "@frontity/now"
       }
     ]
   }
