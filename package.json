@@ -1,11 +1,15 @@
 {
   "name": "technocowgirl",
   "version": "1.0.0",
-  "private": true,
+  "license": "Apache-2.0",
   "description": "Frontity project",
   "keywords": [
     "frontity"
   ],
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
   "scripts": {
     "dev": "frontity dev",
     "build": "frontity build",
