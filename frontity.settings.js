@@ -51,8 +51,23 @@ const settings = {
         "source": {
           "url": "https://wp.technocowgirl.com",
           "params": {
-            "per_page": 5,
+            "per_page": 3,
           },
+          "api": "https://wp.technocowgirl.com/wp-json", 
+          "postTypes": [
+            {
+              type: "horse_card",
+              endpoint: "horse_card",
+              archive: "/horse_cards_cat"
+            }
+          ],
+          taxonomies: [
+            {
+              taxonomy: "horse_cards_cat",
+              endpoint: "horse_cards_cat",
+              postTypeEndpoint: "horse_card"
+            }
+          ]
         }
       }
     },

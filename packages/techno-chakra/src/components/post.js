@@ -21,7 +21,6 @@ const Post = ({ actions, state, libraries }) => {
   const author = state.source.author[post.author]
   const comments = state.source.comment;
   const commentsKeys = Object.keys(comments);
-  console.log('comments', comments);
   const Html2React = libraries.html2react.Component
   const [showCommentForm, setShowCommentForm] = useState(false);
   const [showComments, setShowComments] = useState(false);
