@@ -70,7 +70,7 @@ const settings = {
           ]
         }, 
         "wpSource": {
-          "isWpCom": true,
+          isWpCom: true,
         },
       }
     },
