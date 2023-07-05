@@ -1,4 +1,4 @@
-import { Heading, Text, Flex, Image, useMediaQuery } from "@chakra-ui/react";
+import { Heading, Flex, Image, useMediaQuery } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react"
 import { connect, styled } from "frontity"
 import Link from "@frontity/components/link"
