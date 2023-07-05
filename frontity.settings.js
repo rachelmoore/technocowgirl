@@ -50,9 +50,6 @@ const settings = {
       "state": {
         "source": {
           "url": "https://wp.technocowgirl.com",
-          "wpSource": {
-            "isWpCom": true,
-          },
           "params": {
             "per_page": 3,
           },
@@ -71,7 +68,10 @@ const settings = {
               postTypeEndpoint: "horse_card"
             }
           ]
-        }
+        }, 
+        "wpSource": {
+          "isWpCom": true,
+        },
       }
     },
     {
