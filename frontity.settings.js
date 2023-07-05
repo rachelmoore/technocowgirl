@@ -50,10 +50,13 @@ const settings = {
       "state": {
         "source": {
           "url": "https://wp.technocowgirl.com",
+          "wpSource": {
+            isWpCom: true,
+          },
           "params": {
             "per_page": 3,
           },
-          "api": "https://wp.technocowgirl.com/wp-json", 
+          // "api": "https://wp.technocowgirl.com/wp-json", 
           "postTypes": [
             {
               type: "horse_card",
