@@ -53,7 +53,7 @@ const settings = {
           "params": {
             "per_page": 3,
           },
-          // "api": "https://wp.technocowgirl.com/wp-json", 
+          "api": "https://wp.technocowgirl.com/wp-json", 
           "postTypes": [
             {
               type: "horse_card",
@@ -69,9 +69,9 @@ const settings = {
             }
           ]
         }, 
-        "wpSource": {
-          isWpCom: true,
-        },
+        // "wpSource": {
+        //   isWpCom: true,
+        // },
       }
     },
     {
