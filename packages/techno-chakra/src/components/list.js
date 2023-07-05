@@ -40,7 +40,7 @@ const List = ({ state, actions, libraries }) => {
         {data.items.map((item, idx) => {
           const post = state.source[item.type][item.id]
         return (
-            <ItemContainer>
+          <ItemContainer key={idx}>
             {fullScreen && (idx % 2 !== 0) &&
               <Flex direction="row" width="100%" sx={{ '--custom-bg-odd': colorDict[idx], '--custom-border': borderDict[idx]}}>
                 <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-odd)' style={{borderWidth: 'var(--custom-border)', borderStyle: 'solid', borderColor: '#000000'}}>
