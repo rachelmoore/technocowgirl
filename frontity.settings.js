@@ -51,7 +51,7 @@ const settings = {
         "source": {
           "url": "https://wp.technocowgirl.com",
           "wpSource": {
-            isWpCom: true,
+            "isWpCom": true,
           },
           "params": {
             "per_page": 3,
