@@ -2,7 +2,7 @@ const settings = {
   "name": "technocowgirl",
   "state": {
     "frontity": {
-      "url": "https://technocowgirl.com",
+      "url": "https://wp.technocowgirl.com/",
       "title": "Techno Cowgirl",
       "description": "No, my vet can't hook you up with ketamine"
     }, 
@@ -49,11 +49,11 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://wp.technocowgirl.com",
+          "api": "https://wp.technocowgirl.com/wp-json", 
+          "url": "https://wp.technocowgirl.com/",
           "params": {
             "per_page": 3,
           },
-          "api": "https://wp.technocowgirl.com/wp-json", 
           "postTypes": [
             {
               type: "horse_card",
