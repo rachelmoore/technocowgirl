@@ -49,11 +49,11 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://gph.fxx.mybluehost.me/.website_fa381f8e",
+          "url": "https://wp.technocowgirl.com",
           "params": {
             "per_page": 3,
           },
-          "api": "https://gph.fxx.mybluehost.me/.website_fa381f8e/wp-json", 
+          "api": "https://wp.technocowgirl.com/wp-json", 
           "postTypes": [
             {
               type: "horse_card",
