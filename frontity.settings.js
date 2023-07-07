@@ -53,7 +53,7 @@ const settings = {
           "params": {
             "per_page": 3,
           },
-          "api": "https://gph.fxx.mybluehost.me/.website_a2228db9/wp-json", 
+          "api": "https://wp.technocowgirl.com/wp-json", 
           "postTypes": [
             {
               type: "horse_card",
