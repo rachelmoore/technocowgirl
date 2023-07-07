@@ -49,11 +49,11 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "http://gph.fxx.mybluehost.me/.website_fa381f8e",
+          "url": "https://gph.fxx.mybluehost.me/.website_fa381f8e",
           "params": {
             "per_page": 3,
           },
-          "api": "http://gph.fxx.mybluehost.me/.website_fa381f8e/wp-json", 
+          "api": "https://gph.fxx.mybluehost.me/.website_fa381f8e/wp-json", 
           "postTypes": [
             {
               type: "horse_card",
