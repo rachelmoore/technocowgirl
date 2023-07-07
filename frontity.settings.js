@@ -49,7 +49,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://gph.fxx.mybluehost.me/.website_a2228db9/",
+          "url": "https://wp.technocowgirl.com/",
           "params": {
             "per_page": 3,
           },
