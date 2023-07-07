@@ -39,6 +39,7 @@ const List = ({ state, actions, libraries }) => {
       <Flex direction="column" width="100%">
         {data.items.map((item, idx) => {
           const post = state.source[item.type][item.id]
+          console.log("POST", post);
         return (
           <ItemContainer key={idx}>
             {fullScreen && (idx % 2 !== 0) &&

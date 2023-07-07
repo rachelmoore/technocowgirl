@@ -23,13 +23,13 @@ const technoChakra = {
                 "Roboto:400",
               ],
             },
-            custom: {
-              families: [
-                'Produkt Regular:400',
-                'Produkt Extralight:200',
-              ],
-              urls: ['https://technocowgirl.com/Produkt-Regular.ttf', 'https://technocowgirl.com/Produkt-Extralight.ttf']
-            }
+            // custom: {
+            //   families: [
+            //     'Produkt Regular:400',
+            //     'Produkt Extralight:200',
+            //   ],
+            //   urls: ['https://technocowgirl.com/Produkt-Regular.ttf', 'https://technocowgirl.com/Produkt-Extralight.ttf']
+            // }
           });
         });
       },
