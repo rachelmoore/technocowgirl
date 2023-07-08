@@ -1,6 +1,12 @@
-import { FormLabel, Input, Textarea, Button, Text } from "@chakra-ui/react";
 import React from "react";
 import { connect, styled } from "frontity";
+import { 
+  FormLabel, 
+  Input, 
+  Textarea, 
+  Button, 
+  Text 
+} from "@chakra-ui/react";
 
 const CommentsForm = ({ actions, state, postId }) => {
   const form = state.comments.forms[postId];
