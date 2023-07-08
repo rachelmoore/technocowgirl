@@ -58,16 +58,16 @@ const settings = {
             {
               type: "horse_card",
               endpoint: "horse_card",
-              archive: "/horse_cards_cat"
+              archive: "/horse_card"
             }
           ],
-          taxonomies: [
-            {
-              taxonomy: "horse_cards_cat",
-              endpoint: "horse_cards_cat",
-              postTypeEndpoint: "horse_card"
-            }
-          ]
+          // taxonomies: [
+          //   {
+          //     taxonomy: "horse_cards_cat",
+          //     endpoint: "horse_cards_cat",
+          //     postTypeEndpoint: "horse_card"
+          //   }
+          // ]
         }
       }
     },
