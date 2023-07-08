@@ -103,6 +103,7 @@ const Field = styled.div`
     height: 30px;
     outline: 2px solid #FD05E9;
     outline-offset: 2px;
+    color: #FFFFFF;
   }
   & > label {
     font-size: 18px;
@@ -120,6 +121,7 @@ const FieldTextArea = styled.div`
     height: 100px;
     outline: 2px solid #FD05E9;
     outline-offset: 2px;
+    color: #FFFFFF;
   }
   & > label {
     font-size: 18px;
