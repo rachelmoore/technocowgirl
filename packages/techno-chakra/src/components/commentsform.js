@@ -92,7 +92,6 @@ export default connect(CommentsForm);
 
 const LeaveComment = styled.div`
   width: 300px;
-  margin-top: 50px;
   & > p {
     margin: 0;
   }
