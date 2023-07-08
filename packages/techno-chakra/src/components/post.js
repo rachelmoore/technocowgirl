@@ -22,12 +22,32 @@ const Post = ({ actions, state, libraries }) => {
   const formattedDate = dayjs(post.date).format("DD MMMM YYYY");
   const [showCommentForm, setShowCommentForm] = useState(false);
   const [showComments, setShowComments] = useState(false);
+  const [commentFormText, setCommentFormText] = useState("Leave a Comment");
+  const [commentsText, setCommentsText] = useState("View Comments");
 
   useEffect(() => {
     if (commentsKeys.length === 0) {
       setShowComments(true);
     }
   }, [commentsKeys])
+
+  useEffect(() => {
+    if (showCommentForm === true) {
+      setCommentFormText("Close Form");
+    }
+    if (showCommentForm === false) {
+      setCommentFormText("Leave a Comment");
+    }
+  }, [showCommentForm])
+
+  useEffect(() => {
+    if (showComments === true) {
+      setCommentsText("Hide Comments");
+    }
+    if (showComments === false) {
+      setCommentsText("View Comments");
+    }
+  }, [showComments])
 
   if (data.isFetching) {
     return <Loading />
@@ -59,12 +79,12 @@ const Post = ({ actions, state, libraries }) => {
           </PostContent>
         </PostContainer>
             
-        {!showComments && 
-          <Button bg="brand.100" color="#FFFFFF" onClick={() => setShowComments(true)} mb={5}>View Comments</Button>
-        }
-        {!showCommentForm && 
-          <Button bg="#EE0300" color="#FFFFFF" onClick={() => setShowCommentForm(true)} mb={5}>Leave a Comment</Button>
-        }
+        {/* {!showComments &&  */}
+          
+        {/* }
+        {!showCommentForm &&  */}
+
+        {/* } */}
 
         {!!showComments && 
           <Comments>
@@ -90,6 +110,10 @@ const Post = ({ actions, state, libraries }) => {
             )}
           </Comments>
         }
+
+        <Button bg="brand.100" color="#FFFFFF" onClick={() => setShowComments(!showComments)} mb={5}>{commentsText}</Button>
+
+        <Button bg="#EE0300" color="#FFFFFF" onClick={() => setShowCommentForm(!showCommentForm)} mb={5}>{commentFormText}</Button>
             
         {!!showCommentForm && 
           <CommentsForm actions={actions} state={state} postId={data.id} />
