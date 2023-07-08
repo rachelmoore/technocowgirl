@@ -3,33 +3,34 @@ import React, { useState, useEffect } from "react"
 import { connect, styled } from "frontity"
 import Link from "@frontity/components/link"
 import HorseCard from "./horsecard";
+import HorseCardsListItem from "./horsecardslistitem"
 import Loading from "./loading";
 
 const HorseCardsList = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link);
   const Html2React = libraries.html2react.Component;
-  const [fullScreen, setFullScreen] = useState(true);
-  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
-  const [isLargerThan1015] = useMediaQuery("(min-width: 1015px)");
-  const colorDict = {
-    0: "#3AAEC2",
-    1: "#EE0300",
-    2: "#6A3A80",
-  }
-  const borderDict = {
-    0: "0px 0px 5px 5px",
-    1: "5px 5px 5px 0px",
-    2: "5px 0px 0px 5px"
-  }
+//   const [fullScreen, setFullScreen] = useState(true);
+//   const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
+//   const [isLargerThan1015] = useMediaQuery("(min-width: 1015px)");
+//   const colorDict = {
+//     0: "#3AAEC2",
+//     1: "#EE0300",
+//     2: "#6A3A80",
+//   }
+//   const borderDict = {
+//     0: "0px 0px 5px 5px",
+//     1: "5px 5px 5px 0px",
+//     2: "5px 0px 0px 5px"
+//   }
 
-  useEffect(() => {
-    if (isLargerThan800) {
-      setFullScreen(true);
-    }
-    else {
-      setFullScreen(false);
-    }
-  }, [isLargerThan800])
+//   useEffect(() => {
+//     if (isLargerThan800) {
+//       setFullScreen(true);
+//     }
+//     else {
+//       setFullScreen(false);
+//     }
+//   }, [isLargerThan800])
 
   if (data.isFetching) {
     return <Loading />
@@ -45,8 +46,16 @@ const HorseCardsList = ({ state, actions, libraries }) => {
           console.log("POST", post);
         return (
             <div>
-                <p>Horse Cards Archive</p>
-            </div>
+            <p>Horse Cards Archive</p>
+            {/* <HorseCardsListItem
+                title={post.title.rendered}
+                content={post.content.rendered} 
+                link="https://technocowgirl.com" 
+                featuredMediaId={1} 
+                horseCardNumber={post.acf.horse_card_number} 
+                horseCardSummary={post.acf.horse_card_summary}
+            /> */}
+        </div>
         //   <ItemContainer key={idx}>
         //     {fullScreen && (idx % 2 !== 0) &&
         //       <Flex direction="row" width="100%" sx={{ '--custom-bg-odd': colorDict[idx], '--custom-border': borderDict[idx]}}>
