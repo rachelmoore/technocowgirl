@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react";
-import { connect, Global, css, styled, Head } from "frontity";
+import React from "react";
 import {
   Button,
   Drawer,
@@ -12,7 +11,7 @@ import {
   Icon,
   useDisclosure
 } from '@chakra-ui/react';
-import { FaBook } from "react-icons/fa"
+import { FaBook } from "react-icons/fa";
 import GoodreadsBookshelf from "react-goodreads-shelf";
 
 function Bookshelf() {

@@ -1,6 +1,12 @@
-import { FormLabel, Input, Textarea, Button, Text } from "@chakra-ui/react";
 import React from "react";
 import { connect, styled } from "frontity";
+import { 
+  FormLabel, 
+  Input, 
+  Textarea, 
+  Button, 
+  Text 
+} from "@chakra-ui/react";
 
 const CommentsForm = ({ actions, state, postId }) => {
   const form = state.comments.forms[postId];
@@ -86,7 +92,6 @@ export default connect(CommentsForm);
 
 const LeaveComment = styled.div`
   width: 300px;
-  margin-top: 50px;
   & > p {
     margin: 0;
   }
@@ -103,6 +108,7 @@ const Field = styled.div`
     height: 30px;
     outline: 2px solid #FD05E9;
     outline-offset: 2px;
+    color: #FFFFFF;
   }
   & > label {
     font-size: 18px;
@@ -120,6 +126,7 @@ const FieldTextArea = styled.div`
     height: 100px;
     outline: 2px solid #FD05E9;
     outline-offset: 2px;
+    color: #FFFFFF;
   }
   & > label {
     font-size: 18px;

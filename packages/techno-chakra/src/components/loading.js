@@ -1,6 +1,10 @@
-import { Image, Flex, Heading } from "@chakra-ui/react";
-import React from "react"
-import { styled, keyframes } from "frontity";
+import React from "react";
+import { styled } from "frontity";
+import { 
+    Image, 
+    Flex, 
+    Heading 
+} from "@chakra-ui/react";
 import wheel from '../assets/Wheel200px.gif';
 
 const Loading = () => {
@@ -21,7 +25,7 @@ const Loading = () => {
     )
 }
 
-export default Loading
+export default Loading;
 
 const WheelContainer = styled.div`
     width: 100vw;
