@@ -1,23 +1,20 @@
+import React from "react";
+import { connect, styled, Head } from "frontity";
 import {
     Heading,
     Flex,
     Text,
     Image,
-    Stat,
-    StatLabel,
-    StatNumber,
-    StatHelpText,
-    StatArrow,
-    StatGroup,
-    Button
+    // Stat,
+    // StatLabel,
+    // StatNumber,
+    // StatHelpText,
+    // StatArrow,
+    // StatGroup,
+    // Button
   } from "@chakra-ui/react";
-  import React, { useState } from "react"
-  import { connect, styled, Head } from "frontity"
-  import Link from "@frontity/components/link"
-  import dayjs from "dayjs"
-  import CommentsForm from "./commentsform"
   
-  const HorseCard = ({ actions, state, libraries }) => {
+  const HorseCard = ({ state, libraries }) => {
     const data = state.source.get(state.router.link)
     const post = state.source[data.type][data.id]
     console.log('post', post)
@@ -29,25 +26,25 @@ import {
   
     if (!data.isFetching) {
       return (
-      <Flex direction="column" align="center" mb={10}>
-        <Head>
-          <title>{post.title.rendered}</title>
-          <meta name="description" content={post.acf.horse_card_summary} />
-        </Head>
-          <CardContent>
-            <Heading as="h1" size="2xl">
-                {post.acf.horse_card_number}
-            </Heading>
-            <Heading as="h2" size="lg">
-                <Html2React html={post.title.rendered} />
-            </Heading>
-            <Image src={state.source.attachment[post.featured_media].source_url} height="400px" />
-            <Text mt={1}><Html2React html={post.acf.horse_card_summary} /></Text>
-            <Text p={10}><Html2React html={post.content.rendered} /></Text>
-          </CardContent>
-      </Flex>
-    )
-  }
+        <Flex direction="column" align="center" mb={10}>
+          <Head>
+            <title>{post.title.rendered}</title>
+            <meta name="description" content={post.acf.horse_card_summary} />
+          </Head>
+            <CardContent>
+              <Heading as="h1" size="2xl">
+                  {post.acf.horse_card_number}
+              </Heading>
+              <Heading as="h2" size="lg">
+                  <Html2React html={post.title.rendered} />
+              </Heading>
+              <Image src={state.source.attachment[post.featured_media].source_url} height="400px" />
+              <Text mt={1}><Html2React html={post.acf.horse_card_summary} /></Text>
+              <Text p={10}><Html2React html={post.content.rendered} /></Text>
+            </CardContent>
+        </Flex>
+      )
+    }
   }
   
   export default connect(HorseCard);
