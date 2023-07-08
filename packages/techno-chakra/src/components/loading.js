@@ -1,10 +1,10 @@
+import React from "react";
+import { styled } from "frontity";
 import { 
     Image, 
     Flex, 
     Heading 
 } from "@chakra-ui/react";
-import React from "react";
-import { styled } from "frontity";
 import wheel from '../assets/Wheel200px.gif';
 
 const Loading = () => {
