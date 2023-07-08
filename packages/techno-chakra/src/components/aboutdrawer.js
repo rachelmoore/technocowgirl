@@ -16,10 +16,9 @@ import {
   Link as ChakraLink,
   useDisclosure
 } from '@chakra-ui/react';
-import { FaHorse } from "react-icons/fa"
-import { FiMail } from "react-icons/fi"
+import { FaHorse } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
 import Link from "@frontity/components/link";
-
 import puppeteer from '../assets/puppeteer.gif';
 
 function AboutDrawer() {
