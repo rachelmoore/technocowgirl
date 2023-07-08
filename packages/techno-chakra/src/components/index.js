@@ -19,6 +19,7 @@ import AboutDrawer from "./aboutdrawer";
 import Bookshelf from "./bookshelf";
 import TopNavigation from "./topnavigation";
 import HorseCard from "./horsecard";
+import HorseCardsList from "./horsecardslist";
 import tcsitesunset from '../assets/tcsitesunset.jpg';
 import tcsitewalkingrachel from '../assets/tcsitewalkingrachel.jpg';
 import tcsiteside from '../assets/tcsiteside.jpg';
@@ -152,6 +153,7 @@ const theme = extendTheme({
               <Page when={data.isPage} />
               <Page when={data.isCard} />
               <HorseCard when={data.isHorseCard} />
+              <HorseCardsList when={data.isHorseCardCategory || data.isHorseCardArchive} />
               <Error when={data.isError} />
             </Switch>
           </Main>
