@@ -1,16 +1,16 @@
 
+import React from "react";
+import { connect, styled, Head } from "frontity";
 import {
   Flex,
   Heading
-} from "@chakra-ui/react"
-import React from "react"
-import { connect, styled, Head } from "frontity"
-import Link from "@frontity/components/link"
-import Loading from "./loading"
+} from "@chakra-ui/react";
+import Link from "@frontity/components/link";
+import Loading from "./loading";
 
 const Page = ({ state, libraries }) => {
-  const data = state.source.get(state.router.link)
-  const page = state.source[data.type][data.id]
+  const data = state.source.get(state.router.link);
+  const page = state.source[data.type][data.id];
   const Html2React = libraries.html2react.Component
 
   if (data.isFetching) {
@@ -41,7 +41,7 @@ const Page = ({ state, libraries }) => {
   }
 }
 
-export default connect(Page)
+export default connect(Page);
 
 const PageContainer = styled.div`
   background-color: #FFFFFF;
@@ -79,37 +79,37 @@ const PageContent = styled.div`
 `
 
 const PageTitle = styled.div`
-    -webkit-animation: colorchange 20s infinite alternate;
-    -moz-animation: colorchange 20s infinite alternate;
-    animation: colorchange 20s infinite alternate;
-    text-align: center;
-    border-radius: 100px 100px 0px 0px;
-    background-color: #000000;
-    
-    @keyframes colorchange {
-      0% {
-        color: #3AAEC2;
-      }
-      
-      10% {
-        color: #FD05E9;
-      }
-      
-      25% {
-        color: yellow;
-      }
-      
-      50% {
-        color: #EE0300;
-      }
-      
-      
-      75% {
-        color: yellow;
-      }
-      
-      100% {
-        color: #FD05E9;
-      }
+  -webkit-animation: colorchange 20s infinite alternate;
+  -moz-animation: colorchange 20s infinite alternate;
+  animation: colorchange 20s infinite alternate;
+  text-align: center;
+  border-radius: 100px 100px 0px 0px;
+  background-color: #000000;
+  
+  @keyframes colorchange {
+    0% {
+      color: #3AAEC2;
     }
-    `
+    
+    10% {
+      color: #FD05E9;
+    }
+    
+    25% {
+      color: yellow;
+    }
+    
+    50% {
+      color: #EE0300;
+    }
+    
+    
+    75% {
+      color: yellow;
+    }
+    
+    100% {
+      color: #FD05E9;
+    }
+  }
+`
