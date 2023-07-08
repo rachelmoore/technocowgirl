@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react";
-import { connect, Global, css, styled, Head } from "frontity";
+import React from "react";
 import {
   Button,
   Drawer,
@@ -9,15 +8,11 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Heading,
-  Text,
-  Image,
   Icon,
-  Link as ChakraLink,
   useDisclosure
 } from '@chakra-ui/react';
-import { FiMenu } from "react-icons/fi";
 import Link from "@frontity/components/link";
+import { FiMenu } from "react-icons/fi";
 
 function TopNavigation() {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,7 +21,7 @@ function TopNavigation() {
     return (
       <>
         <Button ref={btnRef} ml={3} mr={3} onClick={onOpen} bg='brand.400'>
-        <Icon as={FiMenu} color="white" />
+          <Icon as={FiMenu} color="white" />
         </Button>
         <Drawer
           isOpen={isOpen}
