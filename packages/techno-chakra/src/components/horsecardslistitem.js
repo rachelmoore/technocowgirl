@@ -1,13 +1,13 @@
+import React from "react";
+import { connect, styled, Head } from "frontity";
 import {
     Heading,
     Flex,
     Text,
-    // Image,
+    // Image
   } from "@chakra-ui/react";
-  import React from "react"
-  import { connect, styled, Head } from "frontity"
   import Link from "@frontity/components/link";
-  import FeaturedMedia from "./featuredmedia"
+  import FeaturedMedia from "./featuredmedia";
   
   const HorseCardsListItem = ({ title, content, link, featuredMediaId, horseCardNumber, horseCardSummary }) => {
     const Html2React = libraries.html2react.Component
