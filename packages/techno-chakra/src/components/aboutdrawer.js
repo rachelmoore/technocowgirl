@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react";
-import { connect, Global, css, styled, Head } from "frontity";
+import React from "react";
 import {
   Button,
   Drawer,
@@ -11,9 +10,6 @@ import {
   DrawerCloseButton,
   Stack,
   Divider,
-  Box,
-  Flex,
-  Heading,
   Text,
   Image,
   Icon,
