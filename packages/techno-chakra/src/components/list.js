@@ -1,7 +1,12 @@
-import { Heading, Flex, Image, useMediaQuery } from "@chakra-ui/react";
-import React, { useState, useEffect } from "react"
-import { connect, styled } from "frontity"
-import Link from "@frontity/components/link"
+import React, { useState, useEffect } from "react";
+import { connect, styled } from "frontity";
+import { 
+  Heading, 
+  Flex, 
+  Image, 
+  useMediaQuery 
+} from "@chakra-ui/react";
+import Link from "@frontity/components/link";
 import Loading from "./loading";
 
 const List = ({ state, actions, libraries }) => {
@@ -9,7 +14,6 @@ const List = ({ state, actions, libraries }) => {
   const Html2React = libraries.html2react.Component;
   const [fullScreen, setFullScreen] = useState(true);
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
-  const [isLargerThan1015] = useMediaQuery("(min-width: 1015px)");
   const colorDict = {
     0: "#3AAEC2",
     1: "#EE0300",
@@ -40,65 +44,65 @@ const List = ({ state, actions, libraries }) => {
         {data.items.map((item, idx) => {
           const post = state.source[item.type][item.id]
           console.log("POST", post);
-        return (
-          <ItemContainer key={idx}>
-            {fullScreen && (idx % 2 !== 0) &&
-              <Flex direction="row" width="100%" sx={{ '--custom-bg-odd': colorDict[idx], '--custom-border': borderDict[idx]}}>
-                <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-odd)' style={{borderWidth: 'var(--custom-border)', borderStyle: 'solid', borderColor: '#000000'}}>
-                  <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
-                    <PostTitle>
-                      <Heading size="lg" pb={5} pt={5}>{post.title.rendered}</Heading>
-                    </PostTitle>
-                    <br />
-                  </Link>
-                  <Html2React html={post.excerpt.rendered} />
+          return (
+            <ItemContainer key={idx}>
+              {fullScreen && (idx % 2 !== 0) &&
+                <Flex direction="row" width="100%" sx={{ '--custom-bg-odd': colorDict[idx], '--custom-border': borderDict[idx]}}>
+                  <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-odd)' style={{borderWidth: 'var(--custom-border)', borderStyle: 'solid', borderColor: '#000000'}}>
+                    <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
+                      <PostTitle>
+                        <Heading size="lg" pb={5} pt={5}>{post.title.rendered}</Heading>
+                      </PostTitle>
+                      <br />
+                    </Link>
+                    <Html2React html={post.excerpt.rendered} />
+                  </Flex>
+                  <Flex direction="column" width="50%" style={{ background: `url("${state.source.attachment[post.featured_media].source_url}")`, backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
+                    {/* {state.source.attachment[post.featured_media] &&
+                      <Image src={state.source.attachment[post.featured_media].source_url} />
+                      } */}
+                  </Flex>
                 </Flex>
-                <Flex direction="column" width="50%" style={{ background: `url("${state.source.attachment[post.featured_media].source_url}")`, backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
-                  {/* {state.source.attachment[post.featured_media] &&
-                    <Image src={state.source.attachment[post.featured_media].source_url} />
-                    } */}
+              }
+              {fullScreen && (idx % 2 === 0) &&
+                <Flex direction="row-reverse" width="100%" sx={{ '--custom-bg-even': colorDict[idx], '--custom-border': borderDict[idx]}}>
+                  <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-even)' style={{borderWidth: 'var(--custom-border)', borderStyle: 'solid', borderColor: '#000000'}}>
+                    <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
+                      <PostTitle>
+                        <Heading size="lg" pb={5} pt={5}>{post.title.rendered}</Heading>
+                      </PostTitle>
+                      <br />
+                    </Link>
+                    <Html2React html={post.excerpt.rendered} />
+                  </Flex>
+                  <Flex direction="column" width="50%" style={{ background: `url("${state.source.attachment[post.featured_media].source_url}")`, backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
+                    {/* {state.source.attachment[post.featured_media] &&
+                      <Image src={state.source.attachment[post.featured_media].source_url} />
+                      } */}
+                  </Flex>
                 </Flex>
-              </Flex>
-            }
-            {fullScreen && (idx % 2 === 0) &&
-              <Flex direction="row-reverse" width="100%" sx={{ '--custom-bg-even': colorDict[idx], '--custom-border': borderDict[idx]}}>
-                <Flex direction="column" width="50%" padding={10} bg='var(--custom-bg-even)' style={{borderWidth: 'var(--custom-border)', borderStyle: 'solid', borderColor: '#000000'}}>
-                  <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
-                    <PostTitle>
-                      <Heading size="lg" pb={5} pt={5}>{post.title.rendered}</Heading>
-                    </PostTitle>
-                    <br />
-                  </Link>
-                  <Html2React html={post.excerpt.rendered} />
-                </Flex>
-                <Flex direction="column" width="50%" style={{ background: `url("${state.source.attachment[post.featured_media].source_url}")`, backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
-                  {/* {state.source.attachment[post.featured_media] &&
-                    <Image src={state.source.attachment[post.featured_media].source_url} />
-                    } */}
-                </Flex>
-              </Flex>
-            }
-          {!fullScreen &&
-            <>
-              <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
-                <PostTitle>
-                  <Heading size="lg" pb={5} pt={5}>{post.title.rendered}</Heading>
-                </PostTitle>
-                <br />
-              </Link>
-              <ItemContentContainer>
-                {state.source.attachment[post.featured_media] &&
-                <Image src={state.source.attachment[post.featured_media].source_url} />
-                }
-                <Html2React html={post.excerpt.rendered} />
-                <Link key={item.id} link={post.link}>
-                  Read More
+              }
+            {!fullScreen &&
+              <>
+                <Link key={item.id} link={post.link} style={{textDecoration: "none"}}>
+                  <PostTitle>
+                    <Heading size="lg" pb={5} pt={5}>{post.title.rendered}</Heading>
+                  </PostTitle>
+                  <br />
                 </Link>
-              </ItemContentContainer>
-            </>
-            }
-            </ItemContainer>
-          )}
+                <ItemContentContainer>
+                  {state.source.attachment[post.featured_media] &&
+                  <Image src={state.source.attachment[post.featured_media].source_url} />
+                  }
+                  <Html2React html={post.excerpt.rendered} />
+                  <Link key={item.id} link={post.link}>
+                    Read More
+                  </Link>
+                </ItemContentContainer>
+              </>
+              }
+              </ItemContainer>
+            )}
         )}
         <PrevNextNav>
           {data.previous && (
@@ -125,7 +129,7 @@ const List = ({ state, actions, libraries }) => {
   }
 }
 
-export default connect(List)
+export default connect(List);
 
 const ItemContainer = styled.div`
   background-color: #FFFFFF;
@@ -145,7 +149,7 @@ const ItemContainer = styled.div`
   h2 {
       margin-top: 0px;
       font-size: 36px;
-    }
+  }
   @media (min-width: 801px) {
     width: 100%;
     margin-bottom: 0px;
@@ -157,7 +161,7 @@ const ItemContainer = styled.div`
     p {
     font-size: 22px;
     color: #000000;
-  }
+    }
   }
   @media (max-width: 600px) {
     width: 350px;
@@ -166,7 +170,7 @@ const ItemContainer = styled.div`
     p {
     font-size: 22px;
     color: #000000;
-  }
+    }
   }
 `
 
@@ -178,9 +182,6 @@ const ItemContentContainer = styled.div`
   padding-right: 20px;
   padding-bottom: 20px;
   width: 100%;
-  @media (max-width: 800px) {  
-    max-width: 780px;
-  }
   margin-bottom: 60px;
   & > a {
     color: blue;
@@ -188,11 +189,13 @@ const ItemContentContainer = styled.div`
     text-decoration: underline;
     letter-spacing: 2px;
   }
+  @media (max-width: 800px) {  
+    max-width: 780px;
+  }
 `
 
 const PrevNextNav = styled.div`
   padding-top: 1.5em;
-
   & > button {
     background: #3654A8;
     border: none;
