@@ -1,4 +1,8 @@
-import { Image, Flex, Heading } from "@chakra-ui/react";
+import { 
+    Image, 
+    Flex, 
+    Heading 
+} from "@chakra-ui/react";
 import React from "react"
 import wheel from '../assets/Wheel200px.gif';
 import { connect, styled } from "frontity"
@@ -21,7 +25,7 @@ const Error = ({ state }) => {
     )
 }
 
-export default connect(Error)
+export default connect(Error);
 
 const WheelContainer = styled.div`
     width: 100vw;
