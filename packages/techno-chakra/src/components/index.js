@@ -1,15 +1,12 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { connect, Global, css, styled, Head } from "frontity";
 import {
   extendTheme,
   useMediaQuery,
   Flex
-} from '@chakra-ui/react'
-import Link from "@frontity/components/link";
+} from '@chakra-ui/react';
 import Switch from "@frontity/components/switch";
-import GoodreadsBookshelf from "react-goodreads-shelf";
-import { ChakraProvider } from '@chakra-ui/react'
-import { FaInstagram } from 'react-icons/fa';
+import { ChakraProvider } from '@chakra-ui/react';
 import Loading from "./loading";
 import Error from "./error";
 import List from "./list";
@@ -20,16 +17,12 @@ import Bookshelf from "./bookshelf";
 import TopNavigation from "./topnavigation";
 import HorseCard from "./horsecard";
 import HorseCardsList from "./horsecardslist";
-import tcsitesunset from '../assets/tcsitesunset.jpg';
 import tcsitewalkingrachel from '../assets/tcsitewalkingrachel.jpg';
-import tcsiteside from '../assets/tcsiteside.jpg';
-import puppeteer from '../assets/puppeteer.gif';
 
-const Root = ({ state, actions }) => {
+const Root = ({ state }) => {
   const data = state.source.get(state.router.link);
-  const [mobileOS, setMobileOS] = useState(false)
-  const [isLargerThan800] = useMediaQuery("(min-width: 800px)")
-  const [isLargerThan1015] = useMediaQuery("(min-width: 1015px)")
+  const [mobileOS, setMobileOS] = useState(false);
+  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
 
   const getMobileOS = () => {
     const ua = navigator.userAgent
@@ -163,62 +156,61 @@ const theme = extendTheme({
   )
 }
 
-export default connect(Root)
+export default connect(Root);
 
 const Container = styled.div`
-background-color: #282c34;
-font-family: 'Roboto';
-/* color: #FFFFFF; */
-min-height: 100vh;
+  background-color: #282c34;
+  font-family: 'Roboto';
+  min-height: 100vh;
 `
 
 const Header = styled.header`
-background-color: #e5edee;
-background: linear-gradient(to top, #0000, #000000), url(${tcsitewalkingrachel});
-background-position: 'center'; 
-background-size: cover; 
-background-repeat: 'no-repeat';
-height: 700px;
-h1 {
-  color: #FFC300;
-}
+  background-color: #e5edee;
+  background: linear-gradient(to top, #0000, #000000), url(${tcsitewalkingrachel});
+  background-position: 'center'; 
+  background-size: cover; 
+  background-repeat: 'no-repeat';
+  height: 700px;
+  h1 {
+    color: #FFC300;
+  }
 `
 
 const SiteTitle = styled.span`
   font-family: 'Rye', cursive;
-   letter-spacing: 5px;
-   font-size: 50px;
-   font-weight: bold;
-   -webkit-animation: colorchange 20s infinite alternate;
-    -moz-animation: colorchange 20s infinite alternate;
-    animation: colorchange 20s infinite alternate;
-    
+  letter-spacing: 5px;
+  font-size: 50px;
+  font-weight: bold;
+  -webkit-animation: colorchange 20s infinite alternate;
+  -moz-animation: colorchange 20s infinite alternate;
+  animation: colorchange 20s infinite alternate;
+  
 
-    @keyframes colorchange {
-    0% {
-      color: #3AAEC2;
-    }
-    
-    10% {
-      color: #FD05E9;
-    }
-    
-    25% {
-      color: yellow;
-    }
-    
-    50% {
-      color: #EE0300;
-    }
-    
-    
-    75% {
-      color: yellow;
-    }
+  @keyframes colorchange {
+  0% {
+    color: #3AAEC2;
+  }
+  
+  10% {
+    color: #FD05E9;
+  }
+  
+  25% {
+    color: yellow;
+  }
+  
+  50% {
+    color: #EE0300;
+  }
+  
+  
+  75% {
+    color: yellow;
+  }
 
-    100% {
-      color: #FD05E9;
-    }
+  100% {
+    color: #FD05E9;
+  }
 `
 
 const TitleMenu = styled.div`
