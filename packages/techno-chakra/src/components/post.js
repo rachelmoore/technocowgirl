@@ -83,7 +83,7 @@ const Post = ({ actions, state, libraries }) => {
           </PostContainer>
         </Flex>
         <Flex direction="column" justifyContent="center" alignItems="center" width="100%">
-          <Flex direction="column" justifyContent="center" marginBottom="100px" width="600px">
+          <Flex direction="column" justifyContent="center" alignItems="center" marginBottom="100px" width="600px">
           {!!showComments && 
             <Comments>
               {commentsKeys.map((commentKey) => {
@@ -268,5 +268,4 @@ const Comments = styled.div`
   justify-content: center;
   align-items: center;
   width: 80%;
-  margin-top: 20px;
 `
