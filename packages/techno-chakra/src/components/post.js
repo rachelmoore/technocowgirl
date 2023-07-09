@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { connect, styled, Head } from "frontity";
 import {
   Heading,
-  Text,
   Image,
   Flex,
   Stat,
@@ -229,13 +228,10 @@ const CommentInfo = styled.div`
   flex-direction: column;
   padding: 1.5em;
   width: 100%;
-  /* margin-bottom: 1em; */
   font-size: 1em;
-  /* border-left: 4px solid #AD9044; */
   & > p {
     margin: 0;
   }
-
   & > img {
     border-radius: 50px;
   }
