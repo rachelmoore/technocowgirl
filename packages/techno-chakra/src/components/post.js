@@ -60,7 +60,7 @@ const Post = ({ actions, state, libraries }) => {
   if (!data.isFetching) {
     return (
       <Flex direction="column">
-        <Flex direction="column" align="center" mb={10}>
+        <Flex direction="column" align="center">
           <Head>
             <title>{post.title.rendered}</title>
             <meta name="description" content={post.excerpt.rendered} />
@@ -120,12 +120,12 @@ const Post = ({ actions, state, libraries }) => {
 
           <Flex direction="row" justifyContent="center" mt={5}>
             <Flex direction="row" justifyContent="center" mr={3}>
-              <Button bg="brand.100" color="#FFFFFF" onClick={() => setShowComments(!showComments)} mb={5}>{commentsText}</Button>
+              <Button bg="brand.100" color="#FFFFFF" onClick={() => setShowComments(!showComments)} mt={5} mb={5}>{commentsText}</Button>
             </Flex>
             
             {showCommentForm === false &&
             <Flex direction="row" justifyContent="center" ml={3}>
-              <Button bg="#EE0300" color="#FFFFFF" onClick={() => setShowCommentForm(!showCommentForm)} mb={5}>{commentFormText}</Button>
+              <Button bg="#EE0300" color="#FFFFFF" onClick={() => setShowCommentForm(!showCommentForm)} mt={5} mb={5}>{commentFormText}</Button>
             </Flex>
             }
           </Flex>
