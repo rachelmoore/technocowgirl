@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { connect, styled, Head } from "frontity";
 import {
   Heading,
+  Text,
+  Image,
   Flex,
   Stat,
   StatLabel,
@@ -89,18 +91,24 @@ const Post = ({ actions, state, libraries }) => {
               {commentsKeys.map((commentKey) => {
                 return ( 
                   <Comment>
-                    <img src={comments[commentKey].author_avatar_urls[96]} />
                     <CommentInfo>
-                      <CommentMeta>
-                        <p>
-                          <strong>Posted:          </strong>
-                          {dayjs(comments[commentKey].date).format("DD MMMM YYYY")}
-                        </p>
-                        <p>
-                          <strong>Author:          </strong>
-                          {comments[commentKey].author_name}
-                        </p>
-                      </CommentMeta>
+                      <CommentAvatarMeta>
+                        <Image
+                            rounded="full"
+                            height="60px"
+                            width="60px"
+                            src={comments[commentKey].author_avatar_urls[96]}
+                            // fallbackSrc={ldplogofooter}
+                            alt={comments[commentKey].author_name}
+                            mr={3}
+                        />
+                        <CommentMeta>
+                          <Stat>
+                            <StatLabel>Author: {comments[commentKey].author_name}</StatLabel>
+                            <StatHelpText>Posted: {dayjs(comments[commentKey].date).format("DD MMMM YYYY")}</StatHelpText>
+                          </Stat>
+                        </CommentMeta>
+                      </CommentAvatarMeta>
                       <p><Html2React html={comments[commentKey].content.rendered} /></p>
                     </CommentInfo>
                   </Comment>
@@ -219,9 +227,9 @@ const PostTitle = styled.div`
 const CommentInfo = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 1.5em;
+  width: 100%;
   /* margin-bottom: 1em; */
-  padding: 0.5em;
   font-size: 1em;
   /* border-left: 4px solid #AD9044; */
   & > p {
@@ -233,17 +241,28 @@ const CommentInfo = styled.div`
   }
 `
 
-const CommentMeta = styled.div`
+const CommentAvatarMeta = styled.div`
   display: flex;
-  flex-direction: column;
-  /* margin-bottom: 1em;
+  flex-direction: row;
+  height: 60px;
+  margin-bottom: 1em;
   margin-left: 1em;
   padding: 0.5em;
   font-size: 1em;
-  /* border-left: 4px solid #AD9044; */
+`
+
+const CommentMeta = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  padding: 0.5em;
+  font-size: 1em;
+  border-left: 4px solid #FFFFFF;
   & > p {
     margin: 0;
-  } */
+  } 
 `
 
 const Comment = styled.div`
@@ -265,6 +284,7 @@ const Comment = styled.div`
 
 const Comments = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 80%;
