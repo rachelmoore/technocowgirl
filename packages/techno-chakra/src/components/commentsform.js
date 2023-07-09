@@ -91,7 +91,7 @@ const CommentsForm = ({ actions, state, postId }) => {
 export default connect(CommentsForm);
 
 const LeaveComment = styled.div`
-  width: 300px;
+  width: 100%;
   & > p {
     margin: 0;
   }
