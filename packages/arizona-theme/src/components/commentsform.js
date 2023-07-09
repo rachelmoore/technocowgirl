@@ -1,10 +1,11 @@
 import React from "react";
 import { connect, styled } from "frontity";
+import { Flex } from "@chakra-ui/react";
 
 const CommentsForm = ({ actions, state, postId }) => {
   const form = state.comments.forms[postId];
   return (
-    <LeaveComment>
+    <Flex direction="column" width="100%">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -77,19 +78,19 @@ const CommentsForm = ({ actions, state, postId }) => {
             <input type="submit" />
         </SubmitButton>
       </form>
-    </LeaveComment>
+    </Flex>
   );
 };
 
 export default connect(CommentsForm);
 
-const LeaveComment = styled.div`
-width: 500px;
-  margin-top: 50px;
-  & > p {
-    margin: 0;
-  }
-`
+// const LeaveComment = styled.div`
+//   width: 100%;
+//   margin-top: 50px;
+//   & > p {
+//     margin: 0;
+//   }
+// `
 
 const Field = styled.div`
   width: 100%;

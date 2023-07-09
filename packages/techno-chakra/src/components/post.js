@@ -84,14 +84,14 @@ const Post = ({ actions, state, libraries }) => {
           </PostContainer>
         </Flex>
         <Flex direction="column" justifyContent="center" alignItems="center" width="100%">
-          <Flex direction="column" justifyContent="center" alignItems="center" marginBottom="100px" width="600px">
-          {!!showComments && 
+          <Flex direction="column" justifyContent="center" alignItems="center" marginBottom="100px" width={{ base: '100%', md: '600px' }}>
+          {!!showComments && commentsKeys.length !== 0 &&
             <Comments>
               {commentsKeys.map((commentKey) => {
                 return ( 
                   <Comment>
                     <CommentInfo>
-                      <CommentAvatarMeta>
+                      <Flex direction="row" marginLeft="1em" padding="0.5em" fontSize="1em">
                         <Image
                             rounded="full"
                             height="60px"
@@ -107,7 +107,7 @@ const Post = ({ actions, state, libraries }) => {
                             <StatHelpText>Posted: {dayjs(comments[commentKey].date).format("DD MMMM YYYY")}</StatHelpText>
                           </Stat>
                         </CommentMeta>
-                      </CommentAvatarMeta>
+                      </Flex>
                       <p><Html2React html={comments[commentKey].content.rendered} /></p>
                     </CommentInfo>
                   </Comment>
@@ -115,6 +115,12 @@ const Post = ({ actions, state, libraries }) => {
               )}
             </Comments>
           }
+
+          {/* {!!showComments && commentsKeys.length === 0 &&
+            <Comments>
+              <Heading>The discussion has yet to be started! Click the button below to leave a comment.</Heading>
+            </Comments>
+          } */}
 
 
           <Flex direction="row" justifyContent="center" mt={5}>
@@ -130,14 +136,14 @@ const Post = ({ actions, state, libraries }) => {
           </Flex>
 
           {showCommentForm === true &&
-          <Flex direction="row-reverse" justifyContent="center" width="100%">
-            <Flex direction="row-reverse" width="300px">
+          <Flex direction="row-reverse" justifyContent="center" width="100%" marginTop="2em">
+            <Flex direction="row-reverse" width="80%">
               <IconButton onClick={() => setShowCommentForm(!showCommentForm)} background="transparent" color="#EE0300" _hover={{ color: "#FFFFFF" }} size="md" icon={<AiOutlineCloseCircle size="lg" />} />
             </Flex>
           </Flex>
           }
 
-          <Flex direction="column" justifyContent="center" alignItems="center">
+          <Flex direction="column" justifyContent="center" alignItems="center" width="80%">
           {!!showCommentForm && 
             <CommentsForm actions={actions} state={state} postId={data.id} />
           }
@@ -237,20 +243,10 @@ const CommentInfo = styled.div`
   }
 `
 
-const CommentAvatarMeta = styled.div`
-  display: flex;
-  flex-direction: row;
-  height: 60px;
-  margin-bottom: 1em;
-  margin-left: 1em;
-  padding: 0.5em;
-  font-size: 1em;
-`
-
 const CommentMeta = styled.div`
   display: flex;
   flex-direction: column;
-  height: 60px;
+  min-height: 60px;
   margin-bottom: 1em;
   margin-left: 1em;
   padding: 0.5em;
@@ -262,7 +258,7 @@ const CommentMeta = styled.div`
 `
 
 const Comment = styled.div`
-  margin-top: 20px;
+  margin-top: 2em;
   display: flex;
   flex-direction: row;
   justify-content: center;
