@@ -123,7 +123,7 @@ const FieldTextArea = styled.div`
   margin-top: 10px;
   & > textarea {
     border: 2px solid #EE0300;
-    height: 100px;
+    height: 200px;
     outline: 2px solid #FD05E9;
     outline-offset: 2px;
     color: #FFFFFF;
