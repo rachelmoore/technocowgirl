@@ -21,8 +21,6 @@ const Post = ({ actions, state, libraries }) => {
   const post = state.source[data.type][data.id];
   const author = state.source.author[post.author];
   const comments = state.source.comment;
-  console.log("state.source.comment", comments);
-  console.log("post", post)
   const Html2React = libraries.html2react.Component
   const commentsKeys = Object.keys(comments);
   const formattedDate = dayjs(post.date).format("DD MMMM YYYY");
@@ -98,9 +96,6 @@ const Post = ({ actions, state, libraries }) => {
           {!!showComments && commentsKeys.length !== 0 &&
             <Comments>
               {commentsKeys.map((commentKey) => {
-                console.log("commentKey", typeof commentKey);
-                console.log("typeof replies", typeof replies);
-                console.log("replies.includes(commentKey", replies.includes(parseInt(commentKey)))
                 return ( 
                   <>
                   {replies.includes(parseInt(commentKey)) &&
