@@ -7,7 +7,7 @@ import {
     Image,
     // Stat,
     // StatLabel,
-    // StatNumber,
+    StatNumber,
     StatHelpText,
     // StatArrow,
     // StatGroup,
