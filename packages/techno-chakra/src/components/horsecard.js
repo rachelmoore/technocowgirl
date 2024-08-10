@@ -5,7 +5,7 @@ import {
     Flex,
     Text,
     Image,
-    // Stat,
+    Stat,
     // StatLabel,
     // StatNumber,
     // StatHelpText,
