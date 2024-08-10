@@ -9,7 +9,7 @@ import {
     // StatLabel,
     StatNumber,
     StatHelpText,
-    // StatArrow,
+    StatArrow,
     // StatGroup,
     // Button
   } from "@chakra-ui/react";
