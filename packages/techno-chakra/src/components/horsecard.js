@@ -7,10 +7,10 @@ import {
     Image,
     // Stat,
     // StatLabel,
-    // StatNumber,
-    // StatHelpText,
-    // StatArrow,
-    // StatGroup,
+    StatNumber,
+    StatHelpText,
+    StatArrow,
+    StatGroup,
     // Button
   } from "@chakra-ui/react";
   
